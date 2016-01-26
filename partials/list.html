@@ -1,1 +1,14 @@
+<section ng-controller="ListCtrl">
 
+  <h1 ng-bind="items[0].genre"></h1>
+
+  <div class="grid" layout="row" layout-wrap>
+    <div class="thumb" ng-repeat="item in items" flex-gt-xs="33" flex="100">
+      <a href="#/gallery/{{item.genre | lowercase}}/{{item.url}}">
+        <div class="spinner"></div>
+        <img ng-src="images/thumbs/{{item.image}}.jpg" alt="{{item.title}}" title="{{item.title}}" onload="imgLoaded(this)" />
+      </a>
+    </div>
+  </div>
+
+</section>
