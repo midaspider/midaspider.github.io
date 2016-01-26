@@ -1,9 +1,9 @@
 var app = angular.module('app', [
-  'ngRoute',
-  'ngAnimate',
-  'ngMaterial',
-  'appControllers',
-  'mailchimp'
+  'ngRoute'
+  ,'ngAnimate'
+  ,'ngMaterial'
+  ,'appControllers'
+  //,'mailchimp'
 ]);
 
 app.config(['$routeProvider',
