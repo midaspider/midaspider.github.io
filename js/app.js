@@ -10,11 +10,11 @@ app.config(['$routeProvider',
   function ($routeProvider) {
     $routeProvider.
       when('/gallery/:itemCategory', {
-        templateUrl: 'partials/artworkList.html',
+        templateUrl: 'partials/list.html',
         controller: 'ListCtrl'
       }).
       when('/gallery/:itemCategory/:itemUrl', {
-        templateUrl: 'partials/artworkDetail.html',
+        templateUrl: 'partials/detail.html',
         controller: 'DetailCtrl'
       }).
       when('/about', {
