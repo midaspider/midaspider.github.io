@@ -48,7 +48,8 @@ app.run(['$rootScope',
       }
     }
     $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
-      $rootScope.page.setTitle(current.$$route.title || 'Andy Beck');
+      //$rootScope.page.setTitle(current.$$route.title || 'Andy Beck');
+      $rootScope.page.setTitle('Andy Beck');
     });
   }
 ]);
