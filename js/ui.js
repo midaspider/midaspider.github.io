@@ -1,4 +1,4 @@
 function imgLoaded(img) {
-  var imgWrapper = img.parentNode.parentNode;
+  var imgWrapper = img.parentNode;
   imgWrapper.className += imgWrapper.className ? ' loaded' : 'loaded';
 };
