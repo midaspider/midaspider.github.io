@@ -66,33 +66,16 @@ appControllers.controller('subscribeCtrl', ['$scope', '$mdDialog',
   }
 ]);
 
-/* HOME VIEW controller */
-appControllers.controller('HomeCtrl', ['$scope', '$rootScope',
-  function ($scope, $rootScope) {
-    /* title is set in $routeProvider */
-    //$scope.page.setTitle('Home');
-    //$scope.pageClass = 'view home';
-    //$rootScope.direction = 'none';
-    $scope.page.setDirection('none');
-  }
-]);
-
 /* DEFAULT VIEW controller */
-appControllers.controller('PageCtrl', ['$scope', '$rootScope',
-  function ($scope, $rootScope) {
-    /* title is set in $routeProvider */
-    //$scope.pageClass = 'view';
-    //$rootScope.direction = 'none';
+appControllers.controller('PageCtrl', ['$scope', 
+  function ($scope) {
     $scope.page.setDirection('none');
   }
 ]);
 
 /* CONTACT VIEW controller */
-appControllers.controller('ContactCtrl', ['$scope', '$rootScope',
-  function ($scope, $rootScope) {
-    /* title is set in $routeProvider */
-    //$scope.pageClass = 'view';
-    //$rootScope.direction = 'none';
+appControllers.controller('ContactCtrl', ['$scope', 
+  function ($scope) {
     $scope.page.setDirection('none');
     $scope.splitName = function (fullName) {
       var formData = {},
@@ -124,10 +107,8 @@ appControllers.controller('ContactCtrl', ['$scope', '$rootScope',
 ]);
 
 /* LIST VIEW controller */
-appControllers.controller('ListCtrl', ['$scope', '$rootScope', '$routeParams', '$http', '$filter',
-  function ($scope, $rootScope, $routeParams, $http, $filter) {
-    //$scope.pageClass = 'view';
-    //$rootScope.direction = 'none';
+appControllers.controller('ListCtrl', ['$scope', '$routeParams', '$http', '$filter',
+  function ($scope, $routeParams, $http, $filter) {
     $scope.page.setDirection('none');
     $http.get('data/gallery.json').success(function (data) {
 
@@ -151,8 +132,8 @@ appControllers.controller('ListCtrl', ['$scope', '$rootScope', '$routeParams', '
 ]);
 
 /* DETAIL VIEW controller */
-appControllers.controller('DetailCtrl', ['$scope', '$rootScope', '$routeParams', '$http', '$filter', '$location', '$mdDialog', 
-  function ($scope, $rootScope, $routeParams, $http, $filter, $location, $mdDialog) {
+appControllers.controller('DetailCtrl', ['$scope', '$routeParams', '$http', '$filter', '$location', '$mdDialog', 
+  function ($scope, $routeParams, $http, $filter, $location, $mdDialog) {
 
     this.isOpen = false;
     //this.hover = false;
@@ -203,14 +184,12 @@ appControllers.controller('DetailCtrl', ['$scope', '$rootScope', '$routeParams',
       /* view previous */
       $scope.getPrev = function (page) {
         $scope.page.setDirection('forward');
-        //$rootScope.direction = 'forward';
         $location.url('/gallery/' + items[page].genre.toLowerCase() + '/' + items[page].url);
       };
 
       /* view next */
       $scope.getNext = function (page) {
         $scope.page.setDirection('backward');
-        //$rootScope.direction = 'backward';
         $location.url('/gallery/' + items[page].genre.toLowerCase() + '/' + items[page].url);
       };
 
