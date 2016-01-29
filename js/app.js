@@ -45,10 +45,13 @@ app.run(['$rootScope',
     $rootScope.page = {
       setTitle: function (title) {
         this.title = title + ' | Andy Beck';
+      },
+      setDirection: function (direction) {
+        this.direction = direction;
       }
     }
     $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
-      $rootScope.page.setTitle(current.$$route.title || '-Andy Beck');
+      $rootScope.page.title = current.$$route ? current.$$route.title : 'Andy Beck';
     });
   }
 ]);
