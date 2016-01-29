@@ -3,7 +3,7 @@ var app = angular.module('app', [
   ,'ngAnimate'
   ,'ngMaterial'
   ,'appControllers'
-  //,'mailchimp'
+  ,'mailchimp'
 ]);
 
 app.config(['$routeProvider',
