@@ -66,22 +66,24 @@ appControllers.controller('subscribeCtrl', ['$scope', '$mdDialog',
   }
 ]);
 
-/* HOME PAGE VIEW controller */
+/* HOME VIEW controller */
 appControllers.controller('HomeCtrl', ['$scope', '$rootScope',
   function ($scope, $rootScope) {
     /* title is set in $routeProvider */
-    $scope.page.setTitle('Home');
+    //$scope.page.setTitle('Home');
     //$scope.pageClass = 'view home';
-    $rootScope.direction = 'none';
+    //$rootScope.direction = 'none';
+    $scope.page.setDirection('none');
   }
 ]);
 
-/* PAGE VIEW controller */
+/* DEFAULT VIEW controller */
 appControllers.controller('PageCtrl', ['$scope', '$rootScope',
   function ($scope, $rootScope) {
     /* title is set in $routeProvider */
     //$scope.pageClass = 'view';
-    $rootScope.direction = 'none';
+    //$rootScope.direction = 'none';
+    $scope.page.setDirection('none');
   }
 ]);
 
@@ -90,7 +92,8 @@ appControllers.controller('ContactCtrl', ['$scope', '$rootScope',
   function ($scope, $rootScope) {
     /* title is set in $routeProvider */
     //$scope.pageClass = 'view';
-    $rootScope.direction = 'none';
+    //$rootScope.direction = 'none';
+    $scope.page.setDirection('none');
     $scope.splitName = function (fullName) {
       var formData = {},
           nameArr = fullName.split(' ');
@@ -124,7 +127,8 @@ appControllers.controller('ContactCtrl', ['$scope', '$rootScope',
 appControllers.controller('ListCtrl', ['$scope', '$rootScope', '$routeParams', '$http', '$filter',
   function ($scope, $rootScope, $routeParams, $http, $filter) {
     //$scope.pageClass = 'view';
-    $rootScope.direction = 'none';
+    //$rootScope.direction = 'none';
+    $scope.page.setDirection('none');
     $http.get('data/gallery.json').success(function (data) {
 
       /* filter items by category from parameters */
@@ -198,13 +202,15 @@ appControllers.controller('DetailCtrl', ['$scope', '$rootScope', '$routeParams',
 
       /* view previous */
       $scope.getPrev = function (page) {
-        $rootScope.direction = 'ltr';
+        $scope.page.setDirection('forward');
+        //$rootScope.direction = 'forward';
         $location.url('/gallery/' + items[page].genre.toLowerCase() + '/' + items[page].url);
       };
 
       /* view next */
       $scope.getNext = function (page) {
-        $rootScope.direction = 'rtl';
+        $scope.page.setDirection('backward');
+        //$rootScope.direction = 'backward';
         $location.url('/gallery/' + items[page].genre.toLowerCase() + '/' + items[page].url);
       };
 
