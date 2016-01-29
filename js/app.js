@@ -51,7 +51,7 @@ app.run(['$rootScope',
       }
     }
     $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
-      $rootScope.page.title = current.$$route ? current.$$route.title : 'Andy Beck';
+      $rootScope.page.title = current.$$route ? current.$$route.title + ' | Andy Beck' : 'Andy Beck';
     });
   }
 ]);
