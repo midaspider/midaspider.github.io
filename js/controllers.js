@@ -67,33 +67,29 @@ appControllers.controller('subscribeCtrl', ['$scope', '$mdDialog',
 ]);
 
 /* DEFAULT VIEW controller */
-appControllers.controller('PageCtrl', ['$scope', 
+appControllers.controller('PageCtrl', ['$scope',
   function ($scope) {
     $scope.page.setDirection('none');
   }
 ]);
 
-/* CONTACT VIEW controller */
-appControllers.controller('ContactCtrl', ['$scope', 
-  function ($scope) {
-    $scope.page.setDirection('none');
-    $scope.splitName = function (fullName) {
-      var formData = {},
-          nameArr = fullName.split(' ');
-      if (nameArr.length == 1) {
-        formData.first_name = nameArr[0];
-        formData.last_name = '';
-      } else if (nameArr.length > 2) {
-        formData.last_name = nameArr.pop();
-        formData.first_name = nameArr.join(' ');
-      } else {
-        formData.first_name = nameArr[0];
-        formData.last_name = nameArr[nameArr.length - 1];
-      }
-      return formData;
-    };
+/* SUBSCRIBE VIEW controller */
+appControllers.controller("subscribeFormCtrl", ["$scope", "utilities",
+  function ($scope, utilities) {
     $scope.change = function () {
-      var newName = $scope.splitName($scope.contact.NAME);
+      var newName = utilities.splitName($scope.mailchimp.NAME);
+      $scope.mailchimp.FNAME = newName.first_name;
+      $scope.mailchimp.LNAME = newName.last_name;
+    };
+  }
+]);
+
+/* CONTACT VIEW controller */
+appControllers.controller('ContactCtrl', ['$scope', 'utilities', 
+  function ($scope, utilities) {
+    $scope.page.setDirection('none');
+    $scope.change = function () {
+      var newName = utilities.splitName($scope.contact.NAME);
       $scope.contact.FNAME = newName.first_name;
       $scope.contact.LNAME = newName.last_name;
     };
