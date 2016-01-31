@@ -12,8 +12,8 @@
     <div ng-hide="contact.result === 'success'">
       
       <!--<div>{{contact.NAME}}, {{contact.FNAME}}, {{contact.LNAME}}</div>-->
-      <input ng-model="contact.FNAME" type="text" name="fname" ng-maxlength="50" placeholder="first">
-      <input ng-model="contact.LNAME" type="text" name="lname" ng-maxlength="50" placeholder="last">
+      <input ng-model="contact.FNAME" type="hidden" name="fname" ng-maxlength="50" placeholder="first">
+      <input ng-model="contact.LNAME" type="hidden" name="lname" ng-maxlength="50" placeholder="last">
 
       <md-input-container class="md-block">
         <label>Name</label>
