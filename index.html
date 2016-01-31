@@ -71,7 +71,7 @@
   </div>
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2008 - <span ng-app ng-controller="DateCtrl" ng-bind="date|date:'yyyy'"></span> Andy Beck</p>
+      <p ng-controller="FooterCtrl" ng-bind-html="footer"></p>
     </div>
   </footer>
 </body>
