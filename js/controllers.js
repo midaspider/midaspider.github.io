@@ -4,10 +4,10 @@
 
 var appControllers = angular.module('appControllers', []);
 
-/* DATE */
-appControllers.controller('DateCtrl', ['$scope',
-  function ($scope) {
-    $scope.date = new Date();
+/* FOOTER */
+appControllers.controller('FooterCtrl', ['$scope', '$sce', 
+  function ($scope, $sce) {
+    $scope.footer = $sce.trustAsHtml('&copy; 2008 - ' + new Date().getFullYear() + ' Andy Beck');
   }
 ]);
 
