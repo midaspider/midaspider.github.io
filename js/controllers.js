@@ -7,7 +7,7 @@ var appControllers = angular.module('appControllers', []);
 /* FOOTER */
 appControllers.controller('FooterCtrl', ['$scope', '$sce', 
   function ($scope, $sce) {
-    $scope.footer = $sce.trustAsHtml('&copy; 2008 - ' + new Date().getFullYear() + ' Andy Beck');
+    $scope.footer = $sce.trustAsHtml('&copy; 2008-' + new Date().getFullYear() + ' Andy Beck');
   }
 ]);
 
