@@ -40,6 +40,28 @@ app.config(['$routeProvider',
   }
 ]);
 
+app.factory('utilities', function () {
+  function splitName(fullName) {
+    var formData = {},
+      nameArr = fullName.split(' ');
+    if (nameArr.length == 1) {
+      formData.first_name = nameArr[0];
+      formData.last_name = '';
+    } else if (nameArr.length > 2) {
+      formData.last_name = nameArr.pop();
+      formData.first_name = nameArr.join(' ');
+    } else {
+      formData.first_name = nameArr[0];
+      formData.last_name = nameArr[nameArr.length - 1];
+    }
+    return formData;
+  }
+  return {
+    splitName: splitName
+    // add more properties as needed
+  }
+});
+
 app.run(['$rootScope',
   function ($rootScope) {
     $rootScope.page = {
