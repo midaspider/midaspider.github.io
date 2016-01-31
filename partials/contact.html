@@ -32,11 +32,11 @@
 
       <md-input-container class="md-block">
         <label>Message</label>
-        <textarea ng-model="contact.MESSAGE" name="message" required md-minlength="10" md-maxlength="20"></textarea>
+        <textarea ng-model="contact.MESSAGE" name="message" required md-minlength="10" md-maxlength="2000"></textarea>
         <div ng-messages="ContactForm.message.$error" role="alert">
           <div ng-message="required">Please enter a message.</div>
-          <div md-message="md-minlength">The message has to be more than 10 characters long.</div>
-          <div md-message="md-maxlength">The message has to be less than 2000 characters long.</div>
+          <div ng-message md-message="md-minlength">The message has to be more than 10 characters long.</div>
+          <div ng-message md-message="md-maxlength">The message has to be less than 2000 characters long.</div>
         </div>
       </md-input-container>
 
