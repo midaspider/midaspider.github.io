@@ -1,7 +1,9 @@
-<md-dialog aria-label="subscribe">
+<md-dialog aria-label="subscribe" ng-controller="subscribeFormCtrl">
   <form name="MailchimpSubscriptionForm" ng-controller="MailchimpSubscriptionCtrl">
 
-    <md-dialog-content ng-controller="subscribeFormCtrl">
+    <md-dialog-content>
+      <!--<div class="md-dialog-content" ng-controller="subscribeFormCtrl">-->
+      <div class="md-dialog-content">
 
         <div ng-hide="mailchimp.result === 'success'">
 
@@ -42,6 +44,7 @@
           <span ng-bind-html="mailchimp.successMessage"></span>
         </div>
 
+      </div>
     </md-dialog-content>
 
     <md-dialog-actions>
