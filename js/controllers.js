@@ -5,41 +5,44 @@
 var appControllers = angular.module('appControllers', []);
 
 /* FOOTER */
-appControllers.controller('FooterCtrl', ['$scope', '$sce', 
-  function ($scope, $sce) {
-    $scope.footer = $sce.trustAsHtml('&copy; 2008-' + new Date().getFullYear() + ' Andy Beck');
-  }
+appControllers.controller('FooterCtrl', ['$scope', '$sce',
+   function ($scope, $sce) {
+      $scope.footer = $sce.trustAsHtml('&copy; 2008-' + new Date().getFullYear() + ' Andy Beck');
+   }
 ]);
 
 /* NAVIAGTION auto close on click & set current to active */
-appControllers.controller('NavCtrl', ['$scope', '$location',
-  function ($scope, $location) {
-    $scope.isCollapsed = true;
-    $scope.$on('$routeChangeSuccess', function () {
-      $scope.isCollapsed = true;
-    });
-    $scope.getClass = function (path) {
-      if (path === '/') {
-        if ($location.path() === '/') {
-          return "active";
-        } else {
-          return "";
-        }
+appControllers.controller('NavCtrl', ['$scope', '$location', 'Category', 
+   function ($scope, $location, Category) {
+
+      Category.getItems().then(function (categories) {
+         $scope.categories = categories.categories;
+      });
+      $scope.$on('$routeChangeSuccess', function () {
+         $scope.navShow = true;
+      });
+
+      $scope.getClass = function (path) {
+         if (path === '/') {
+            if ($location.path() === '/') {
+               return "active";
+            } else {
+               return "";
+            }
+         }
+         if ($location.path().substr(0, path.length) === path) {
+            return "active";
+         } else {
+            return "";
+         }
       }
-      if ($location.path().substr(0, path.length) === path) {
-        return "active";
-      } else {
-        return "";
-      }
-    }
-  }
+   }
 ]);
 
 /* SOCIAL LINKS controller */
 appControllers.controller('SocialCtrl', ['$scope',
   function ($scope) {
     $scope.socialUrl = function (url) {
-      //console.log(link);
       window.open(url, '_blank');
     };
   }
@@ -103,109 +106,91 @@ appControllers.controller('ContactCtrl', ['$scope', 'utilities',
 ]);
 
 /* LIST VIEW controller */
-appControllers.controller('ListCtrl', ['$scope', '$routeParams', '$http', '$filter',
-  function ($scope, $routeParams, $http, $filter) {
-    $scope.page.setDirection('none');
-    $http.get('data/gallery.json').success(function (data) {
+appControllers.controller('ListCtrl', ['$scope', 'Category',
+   function ($scope, Category) {
 
-      /* filter items by category from parameters */
-      var items = $filter('filter')(data, {
-        genre: $routeParams.itemCategory
+      $scope.page.showSubNav(true);
+      $scope.page.setDirection('none');
+
+      Category.getItems().then(function (categories) {
+         $scope.title = categories.categories;
+         $scope.page.setTitle($scope.title);
+      });
+      Category.getItems().then(function (items) {
+         $scope.items = items.items;
       });
 
-      /* sort items by date in descending order */
-      items.sort(function (a, b) {
-        return b.date.localeCompare(a.date);
-      });
-      $scope.items = items;
-
-      /* page title */
-      $scope.page.setTitle(items[0].genre);
-
-    });
-
-  }
+   }
 ]);
 
 /* DETAIL VIEW controller */
-appControllers.controller('DetailCtrl', ['$scope', '$routeParams', '$http', '$filter', '$location', '$mdDialog', 
-  function ($scope, $routeParams, $http, $filter, $location, $mdDialog) {
+appControllers.controller('DetailCtrl', ['$scope', '$routeParams', '$filter', '$location', 'Category',
+   function ($scope, $routeParams, $filter, $location, Category) {
 
-    this.isOpen = false;
-    //this.hover = false;
+      $scope.page.showSubNav(true);
+      this.shareOpen = false;
 
-    //$scope.pageClass = 'view detail';
-    $scope.url = $routeParams.itemUrl;
-    $http.get('data/gallery.json').success(function (data) {
+      $scope.url = $routeParams.itemUrl;
 
-      /* filter items by genre from parameters */
-      var items = $filter('filter')(data, {
-        genre: $routeParams.itemCategory
+      Category.getItems().then(function (items) {
+         $scope.items = items;
+      });
+      $scope.$on('updateCategory', function (events, items) {
+
+         /* get item by matching url with parameters */
+         var item = $filter('filter')(items, {
+            url: $scope.url
+         }, true)[0];
+
+         $scope.item = item;
+
+         /* page title */
+         $scope.page.setTitle($scope.item.title);
+
+         /* the index of the selected item in the array */
+         var currentIndex = items.indexOf(item);
+
+         /* find previous item */
+         if (currentIndex > 0)
+            $scope.prevItem = Number(currentIndex) - 1;
+         else
+            $scope.prevItem = items.length - 1;
+
+         /* find next item */
+         if (currentIndex < items.length - 1)
+            $scope.nextItem = Number(currentIndex) + 1;
+         else
+            $scope.nextItem = 0;
+
+         /* view previous */
+         $scope.getPrev = function (page) {
+            $scope.page.setDirection('forward');
+            $location.url('/gallery/' + items[page].category.toLowerCase() + '/' + items[page].url);
+         };
+
+         /* view next */
+         $scope.getNext = function (page) {
+            $scope.page.setDirection('backward');
+            $location.url('/gallery/' + items[page].category.toLowerCase() + '/' + items[page].url);
+         };
+
+         /* tweet on twitter */
+         $scope.tweet = function (item) {
+            //console.log();
+            window.open('https://twitter.com/intent/tweet?url=http%3A%2F%2Fandybeck.co.uk/gallery/' + item.category.toLowerCase() + '/' + item.url + '%2F&text=' + item.title + '&hashtags=andybeck,painting', '_blank', 'width=600, height=260');
+         };
+
+         /* like on facebook */
+         $scope.like = function (item) {
+            window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fandybeck.co.uk/gallery/' + item.category.toLowerCase() + '/' + item.url + '%2F', '_blank', 'width=580, height=550');
+         };
+
+         /* pin on pinterest */
+         $scope.pin = function (item) {
+            window.open('http://www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fandybeck.co.uk/gallery/' + item.category.toLowerCase() + '/' + item.url + '&media=http%3A%2F%2Fandybeck.co.uk/images/' + item.image + '.jpg&description=Andy+Beck+-+' + item.title, '_blank', 'width=750, height=540');
+         };
+
       });
 
-      /* sort items by date in descending order */
-      items.sort(function (a, b) {
-        return b.date.localeCompare(a.date);
-      });
-      $scope.items = items;
-
-      /* get item by matching url with parameters */
-      var item = $filter('filter')(items, {
-        url: $scope.url
-      }, true)[0];
-      //var item = data.filter(function (entry) {
-      //  return entry.url === $scope.url;
-      //})[0];
-
-      $scope.item = item;
-
-      /* page title */
-      $scope.page.setTitle($scope.item.title);
-
-      /* the index of the selected item in the array */
-      var currentIndex = items.indexOf(item);
-
-      /* find previous item */
-      if (currentIndex > 0)
-        $scope.prevItem = Number(currentIndex) - 1;
-      else
-        $scope.prevItem = items.length - 1;
-
-      /* find next item */
-      if (currentIndex < items.length - 1)
-        $scope.nextItem = Number(currentIndex) + 1;
-      else
-        $scope.nextItem = 0;
-
-      /* view previous */
-      $scope.getPrev = function (page) {
-        $scope.page.setDirection('forward');
-        $location.url('/gallery/' + items[page].genre.toLowerCase() + '/' + items[page].url);
-      };
-
-      /* view next */
-      $scope.getNext = function (page) {
-        $scope.page.setDirection('backward');
-        $location.url('/gallery/' + items[page].genre.toLowerCase() + '/' + items[page].url);
-      };
-
-      /* tweet on twitter */
-      $scope.tweet = function (item) {
-        //console.log();
-        window.open('https://twitter.com/intent/tweet?url=http%3A%2F%2Fandybeck.co.uk/gallery/' + item.genre.toLowerCase() + '/' + item.url + '%2F&text=' + item.title + '&hashtags=andybeck,painting', '_blank', 'width=600, height=260');
-      };
-
-      /* like on facebook */
-      $scope.like = function (item) {
-        window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fandybeck.co.uk/gallery/' + item.genre.toLowerCase() + '/' + item.url + '%2F', '_blank', 'width=580, height=550');
-      };
-
-      /* pin on pinterest */
-      $scope.pin = function (item) {
-        window.open('http://www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fandybeck.co.uk/gallery/' + item.genre.toLowerCase() + '/' + item.url + '&media=http%3A%2F%2Fandybeck.co.uk/images/' + item.image + '.jpg&description=Andy+Beck+-+' + item.title, '_blank', 'width=750, height=540');
-      };
-
-    });
-
-  }
+   }
 ]);
