@@ -11,12 +11,14 @@ appControllers.controller('FooterCtrl', ['$scope', '$sce',
    }
 ]);
 
+
 /* NAVIAGTION auto close on click & set current to active */
 appControllers.controller('NavCtrl', ['$scope', '$location', 'sortData', 
    function ($scope, $location, sortData) {
 
-      sortData.getItems().then(function (categories) {
-         $scope.categories = categories.categories;
+      sortData.getItems().then(function (data) {
+         console.log('NavCtrl: ' + data.categories);
+         $scope.categories = data.categories;
       });
       $scope.$on('$routeChangeSuccess', function () {
          $scope.navShow = true;
@@ -39,6 +41,7 @@ appControllers.controller('NavCtrl', ['$scope', '$location', 'sortData',
    }
 ]);
 
+
 /* SOCIAL LINKS controller */
 appControllers.controller('SocialCtrl', ['$scope',
   function ($scope) {
@@ -47,6 +50,7 @@ appControllers.controller('SocialCtrl', ['$scope',
     };
   }
 ]);
+
 
 /* SUBSCRIBE DIALOG controller */
 appControllers.controller('subscribeCtrl', ['$scope', '$mdDialog',
@@ -69,12 +73,14 @@ appControllers.controller('subscribeCtrl', ['$scope', '$mdDialog',
   }
 ]);
 
+
 /* DEFAULT VIEW controller */
 appControllers.controller('PageCtrl', ['$scope',
   function ($scope) {
     $scope.page.setDirection('none');
   }
 ]);
+
 
 /* SUBSCRIBE VIEW controller */
 appControllers.controller("subscribeFormCtrl", ["$scope", "utilities",
@@ -86,6 +92,7 @@ appControllers.controller("subscribeFormCtrl", ["$scope", "utilities",
     };
   }
 ]);
+
 
 /* CONTACT VIEW controller */
 appControllers.controller('ContactCtrl', ['$scope', 'utilities', 
@@ -105,6 +112,7 @@ appControllers.controller('ContactCtrl', ['$scope', 'utilities',
   }
 ]);
 
+
 /* LIST VIEW controller */
 appControllers.controller('ListCtrl', ['$scope', 'sortData',
    function ($scope, sortData) {
@@ -112,8 +120,9 @@ appControllers.controller('ListCtrl', ['$scope', 'sortData',
       $scope.page.showSubNav(true);
       $scope.page.setDirection('none');
 
-      sortData.getItems().then(function (categories) {
-         $scope.title = categories.categories;
+      sortData.getItems().then(function (data) {
+         console.log('ListCtrl: '+data.categories);
+         $scope.title = data.categories;
          $scope.page.setTitle($scope.title);
       });
       sortData.getItems().then(function (items) {
@@ -122,6 +131,7 @@ appControllers.controller('ListCtrl', ['$scope', 'sortData',
 
    }
 ]);
+
 
 /* DETAIL VIEW controller */
 appControllers.controller('DetailCtrl', ['$scope', '$routeParams', '$filter', '$location', 'sortData',
@@ -132,13 +142,13 @@ appControllers.controller('DetailCtrl', ['$scope', '$routeParams', '$filter', '$
 
       $scope.url = $routeParams.itemUrl;
 
-      sortData.getItems().then(function (items) {
-         $scope.items = items;
+      sortData.getItems().then(function (data) {
+         $scope.items = data;
       });
-      $scope.$on('updateCategory', function (events, items) {
+      $scope.$on('updateCategory', function (events, data) {
 
          /* get item by matching url with parameters */
-         var item = $filter('filter')(items, {
+         var item = $filter('filter')(data, {
             url: $scope.url
          }, true)[0];
 
@@ -148,16 +158,16 @@ appControllers.controller('DetailCtrl', ['$scope', '$routeParams', '$filter', '$
          $scope.page.setTitle($scope.item.title);
 
          /* the index of the selected item in the array */
-         var currentIndex = items.indexOf(item);
+         var currentIndex = data.indexOf(item);
 
          /* find previous item */
          if (currentIndex > 0)
             $scope.prevItem = Number(currentIndex) - 1;
          else
-            $scope.prevItem = items.length - 1;
+            $scope.prevItem = data.length - 1;
 
          /* find next item */
-         if (currentIndex < items.length - 1)
+         if (currentIndex < data.length - 1)
             $scope.nextItem = Number(currentIndex) + 1;
          else
             $scope.nextItem = 0;
@@ -165,13 +175,13 @@ appControllers.controller('DetailCtrl', ['$scope', '$routeParams', '$filter', '$
          /* view previous */
          $scope.getPrev = function (page) {
             $scope.page.setDirection('forward');
-            $location.url('/gallery/' + items[page].category.toLowerCase() + '/' + items[page].url);
+            $location.url('/gallery/' + data[page].category.toLowerCase() + '/' + data[page].url);
          };
 
          /* view next */
          $scope.getNext = function (page) {
             $scope.page.setDirection('backward');
-            $location.url('/gallery/' + items[page].category.toLowerCase() + '/' + items[page].url);
+            $location.url('/gallery/' + data[page].category.toLowerCase() + '/' + data[page].url);
          };
 
          /* tweet on twitter */
