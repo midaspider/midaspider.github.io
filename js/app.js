@@ -4,6 +4,7 @@ function imgLoaded(img) {
    imgWrapper.className += imgWrapper.className ? ' loaded' : 'loaded';
 };
 
+
 /* ANGULAR APP */
 var app = angular.module('app', [
   'ngRoute',
@@ -12,6 +13,7 @@ var app = angular.module('app', [
   'appControllers',
   'mailchimp'
 ]);
+
 
 app.config(['$routeProvider',
   function ($routeProvider) {
@@ -48,6 +50,7 @@ app.config(['$routeProvider',
   }
 ]);
 
+
 app.run(['$rootScope',
   function ($rootScope) {
      $rootScope.page = {
@@ -66,6 +69,7 @@ app.run(['$rootScope',
      });
   }
 ]);
+
 
 app.factory('utilities', function () {
    function splitName(fullName) {
@@ -88,7 +92,9 @@ app.factory('utilities', function () {
    }
 });
 
-app.factory('Category', ['$http', '$rootScope', '$filter', '$routeParams', function ($http, $rootScope, $filter, $routeParams) {
+
+app.factory('sortData', ['$http', '$rootScope', '$filter', '$routeParams', 
+function ($http, $rootScope, $filter, $routeParams) {
    var items = [];
    return {
       getItems: function () {
@@ -120,6 +126,7 @@ app.factory('Category', ['$http', '$rootScope', '$filter', '$routeParams', funct
       saveItems: function () { }
    };
 }]);
+
 
 app.animation('.slide', function () {
    return {
