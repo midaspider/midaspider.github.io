@@ -12,10 +12,10 @@ appControllers.controller('FooterCtrl', ['$scope', '$sce',
 ]);
 
 /* NAVIAGTION auto close on click & set current to active */
-appControllers.controller('NavCtrl', ['$scope', '$location', 'Category', 
-   function ($scope, $location, Category) {
+appControllers.controller('NavCtrl', ['$scope', '$location', 'sortData', 
+   function ($scope, $location, sortData) {
 
-      Category.getItems().then(function (categories) {
+      sortData.getItems().then(function (categories) {
          $scope.categories = categories.categories;
       });
       $scope.$on('$routeChangeSuccess', function () {
@@ -106,17 +106,17 @@ appControllers.controller('ContactCtrl', ['$scope', 'utilities',
 ]);
 
 /* LIST VIEW controller */
-appControllers.controller('ListCtrl', ['$scope', 'Category',
-   function ($scope, Category) {
+appControllers.controller('ListCtrl', ['$scope', 'sortData',
+   function ($scope, sortData) {
 
       $scope.page.showSubNav(true);
       $scope.page.setDirection('none');
 
-      Category.getItems().then(function (categories) {
+      sortData.getItems().then(function (categories) {
          $scope.title = categories.categories;
          $scope.page.setTitle($scope.title);
       });
-      Category.getItems().then(function (items) {
+      sortData.getItems().then(function (items) {
          $scope.items = items.items;
       });
 
@@ -124,15 +124,15 @@ appControllers.controller('ListCtrl', ['$scope', 'Category',
 ]);
 
 /* DETAIL VIEW controller */
-appControllers.controller('DetailCtrl', ['$scope', '$routeParams', '$filter', '$location', 'Category',
-   function ($scope, $routeParams, $filter, $location, Category) {
+appControllers.controller('DetailCtrl', ['$scope', '$routeParams', '$filter', '$location', 'sortData',
+   function ($scope, $routeParams, $filter, $location, sortData) {
 
       $scope.page.showSubNav(true);
       this.shareOpen = false;
 
       $scope.url = $routeParams.itemUrl;
 
-      Category.getItems().then(function (items) {
+      sortData.getItems().then(function (items) {
          $scope.items = items;
       });
       $scope.$on('updateCategory', function (events, items) {
