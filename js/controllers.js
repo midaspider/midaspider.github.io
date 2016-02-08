@@ -172,6 +172,9 @@ appControllers.controller('DetailCtrl', ['$scope', '$routeParams', '$filter', '$
          else
             $scope.nextItem = 0;
 
+         $scope.prev = data[$scope.prevItem];
+         $scope.next = data[$scope.nextItem];
+
          /* view previous */
          $scope.getPrev = function (page) {
             $scope.page.setDirection('forward');
