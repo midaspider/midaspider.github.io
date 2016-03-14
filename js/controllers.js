@@ -82,7 +82,7 @@ appControllers.controller('PageCtrl', ['$scope',
 ]);
 
 /* PRICE VIEW controller */
-appControllers.controller('priceCtrl', ['$scope',
+appControllers.controller('PriceCtrl', ['$scope',
   function ($scope) {
      $scope.getLatestPrices = function () {
         $scope.yahooFinance = $resource('//finance.yahoo.com/webservice/v1/symbols/:symbol/quote?format=json&view=detail',
