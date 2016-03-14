@@ -84,6 +84,20 @@ appControllers.controller('PageCtrl', ['$scope',
 /* PRICE VIEW controller */
 appControllers.controller('PriceCtrl', ['$scope',
   function ($scope) {
+     
+     $scope.stocks = [
+            { Symbol: 'VTSAX', Quantity: 330, Price: 46.49, Target: 30 },
+            { Symbol: 'VFITX', Quantity: 700, Price: 11.43, Target: 15 },
+            { Symbol: 'VUSTX', Quantity: 1920, Price: 12.66, Target: 40 },
+            { Symbol: 'GLD', Quantity: 100, Price: 104.08, Target: 7.5 },
+            { Symbol: 'DBC', Quantity: 570, Price: 12.07, Target: 7.5 },
+            { Symbol: null, Quantity: 0, Price: 0, Target: 0 },
+            { Symbol: null, Quantity: 0, Price: 0, Target: 0 },
+            { Symbol: null, Quantity: 0, Price: 0, Target: 0 },
+            { Symbol: null, Quantity: 0, Price: 0, Target: 0 },
+            { Symbol: null, Quantity: 0, Price: 0, Target: 0 }
+    ];
+    
      $scope.getLatestPrices = function () {
         $scope.yahooFinance = $resource('//finance.yahoo.com/webservice/v1/symbols/:symbol/quote?format=json&view=detail',
         { callback: 'JSON_CALLBACK' },
@@ -103,6 +117,7 @@ appControllers.controller('PriceCtrl', ['$scope',
            }
         }
      }
+     
   }
 ]);
 
