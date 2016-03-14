@@ -18,6 +18,10 @@ var app = angular.module('app', [
 app.config(['$routeProvider',
   function ($routeProvider) {
      $routeProvider.
+       when('/price', {
+          templateUrl: 'partials/price.html',
+          controller: 'PriceCtrl'
+       }).
        when('/gallery/:itemCategory', {
           templateUrl: 'partials/list.html',
           controller: 'ListCtrl'
