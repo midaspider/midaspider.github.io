@@ -81,6 +81,31 @@ appControllers.controller('PageCtrl', ['$scope',
   }
 ]);
 
+/* PRICE VIEW controller */
+appControllers.controller('priceCtrl', ['$scope',
+  function ($scope) {
+     $scope.getLatestPrices = function () {
+        $scope.yahooFinance = $resource('//finance.yahoo.com/webservice/v1/symbols/:symbol/quote?format=json&view=detail',
+        { callback: 'JSON_CALLBACK' },
+        { get: { method: 'JSONP', isArray: false } });
+        for (var i = 0; i < $scope.stocks.length; i++) {
+           var stock = $scope.stocks[i];
+           if (!!stock.Symbol) {
+              $scope.yahooFinance.get({ symbol: stock.Symbol }, function (data) {
+                 for (var i = 0; i < $scope.stocks.length; i++) {
+                    var stock = $scope.stocks[i];
+                    if (stock.Symbol.toLowerCase() == data.list.resources[0].resource.fields.symbol.toLowerCase()) {
+                        stock.Price = Math.round(Number(data.list.resources[0].resource.fields.price) * 100) / 100;
+                        break;
+                    }
+                }
+              });
+           }
+        }
+     }
+  }
+]);
+
 
 /* SUBSCRIBE VIEW controller */
 appControllers.controller("subscribeFormCtrl", ["$scope", "utilities",
