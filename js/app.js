@@ -48,8 +48,8 @@ app.config(['$routeProvider',
        }).
        otherwise({
           redirectTo: '/',
-          templateUrl: 'partials/home.html',
-          controller: 'PageCtrl'
+          templateUrl: 'partials/price.html',
+          controller: 'PriceCtrl'
        });
   }
 ]);
