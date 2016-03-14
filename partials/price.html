@@ -4,207 +4,45 @@
 </div>
 
 <table class="StatisticsTable">
-  <thead>
-      <tr>
-          <th>Symbol</th>
-          <th>Quantity</th>
-          <th>Price</th>
-          <th>Target Allocation, %</th>
-          <th>Your Allocation, %</th>
-          <th>Amount</th>
-          <th style="background-color:lawngreen">Action</th>
-      </tr>
-  </thead>
-  <tbody>
-      <!-- ngRepeat: x in stocks --><tr ng-repeat="x in stocks" class="ng-scope">
-          <td style="padding:0;">
-              <input type="text" style="background-color:lightgoldenrodyellow" class="DockFill ng-pristine ng-untouched ng-valid" ng-model="x.Symbol">
-          </td>
-          <td style="padding:0">
-              <input type="number" style="background-color:lightgoldenrodyellow; text-align:right;" class="DockFill ng-pristine ng-untouched ng-valid" ng-model="x.Quantity">
-          </td>
-          <td style="padding:0">
-              <input type="number" style="background-color:lightgoldenrodyellow;text-align:right;" class="DockFill ng-pristine ng-untouched ng-valid" ng-model="x.Price">
-          </td>
-          <td style="padding:0">
-              <input type="number" min="0" max="100" style="background-color:lightgoldenrodyellow;text-align:right;" class="DockFill ng-pristine ng-untouched ng-valid ng-valid-min ng-valid-max" ng-model="x.Target">
-          </td>
-          <td style="text-align:right" class="ng-binding">24%</td>
-          <td style="text-align:right" class="ng-binding">$15,341.70</td>
-          <td style="white-space: nowrap; background-color:lawngreen" class="ng-binding">
-              Buy 89
-          </td>
-      </tr><!-- end ngRepeat: x in stocks --><tr ng-repeat="x in stocks" class="ng-scope">
-          <td style="padding:0;">
-              <input type="text" style="background-color:lightgoldenrodyellow" class="DockFill ng-pristine ng-untouched ng-valid" ng-model="x.Symbol">
-          </td>
-          <td style="padding:0">
-              <input type="number" style="background-color:lightgoldenrodyellow; text-align:right;" class="DockFill ng-pristine ng-untouched ng-valid" ng-model="x.Quantity">
-          </td>
-          <td style="padding:0">
-              <input type="number" style="background-color:lightgoldenrodyellow;text-align:right;" class="DockFill ng-pristine ng-untouched ng-valid" ng-model="x.Price">
-          </td>
-          <td style="padding:0">
-              <input type="number" min="0" max="100" style="background-color:lightgoldenrodyellow;text-align:right;" class="DockFill ng-pristine ng-untouched ng-valid ng-valid-min ng-valid-max" ng-model="x.Target">
-          </td>
-          <td style="text-align:right" class="ng-binding">12%</td>
-          <td style="text-align:right" class="ng-binding">$8,001.00</td>
-          <td style="white-space: nowrap; background-color:lawngreen" class="ng-binding">
-              Buy 152
-          </td>
-      </tr><!-- end ngRepeat: x in stocks --><tr ng-repeat="x in stocks" class="ng-scope">
-          <td style="padding:0;">
-              <input type="text" style="background-color:lightgoldenrodyellow" class="DockFill ng-pristine ng-untouched ng-valid" ng-model="x.Symbol">
-          </td>
-          <td style="padding:0">
-              <input type="number" style="background-color:lightgoldenrodyellow; text-align:right;" class="DockFill ng-pristine ng-untouched ng-valid" ng-model="x.Quantity">
-          </td>
-          <td style="padding:0">
-              <input type="number" style="background-color:lightgoldenrodyellow;text-align:right;" class="DockFill ng-pristine ng-untouched ng-valid" ng-model="x.Price">
-          </td>
-          <td style="padding:0">
-              <input type="number" min="0" max="100" style="background-color:lightgoldenrodyellow;text-align:right;" class="DockFill ng-pristine ng-untouched ng-valid ng-valid-min ng-valid-max" ng-model="x.Target">
-          </td>
-          <td style="text-align:right" class="ng-binding">37%</td>
-          <td style="text-align:right" class="ng-binding">$24,307.20</td>
-          <td style="white-space: nowrap; background-color:lawngreen" class="ng-binding">
-              Buy 132
-          </td>
-      </tr><!-- end ngRepeat: x in stocks --><tr ng-repeat="x in stocks" class="ng-scope">
-          <td style="padding:0;">
-              <input type="text" style="background-color:lightgoldenrodyellow" class="DockFill ng-pristine ng-untouched ng-valid" ng-model="x.Symbol">
-          </td>
-          <td style="padding:0">
-              <input type="number" style="background-color:lightgoldenrodyellow; text-align:right;" class="DockFill ng-pristine ng-untouched ng-valid" ng-model="x.Quantity">
-          </td>
-          <td style="padding:0">
-              <input type="number" style="background-color:lightgoldenrodyellow;text-align:right;" class="DockFill ng-pristine ng-untouched ng-valid" ng-model="x.Price">
-          </td>
-          <td style="padding:0">
-              <input type="number" min="0" max="100" style="background-color:lightgoldenrodyellow;text-align:right;" class="DockFill ng-pristine ng-untouched ng-valid ng-valid-min ng-valid-max" ng-model="x.Target">
-          </td>
-          <td style="text-align:right" class="ng-binding">16%</td>
-          <td style="text-align:right" class="ng-binding">$10,408.00</td>
-          <td style="white-space: nowrap; background-color:lawngreen" class="ng-binding">
-              Sell 53
-          </td>
-      </tr><!-- end ngRepeat: x in stocks --><tr ng-repeat="x in stocks" class="ng-scope">
-          <td style="padding:0;">
-              <input type="text" style="background-color:lightgoldenrodyellow" class="DockFill ng-pristine ng-untouched ng-valid" ng-model="x.Symbol">
-          </td>
-          <td style="padding:0">
-              <input type="number" style="background-color:lightgoldenrodyellow; text-align:right;" class="DockFill ng-pristine ng-untouched ng-valid" ng-model="x.Quantity">
-          </td>
-          <td style="padding:0">
-              <input type="number" style="background-color:lightgoldenrodyellow;text-align:right;" class="DockFill ng-pristine ng-untouched ng-valid" ng-model="x.Price">
-          </td>
-          <td style="padding:0">
-              <input type="number" min="0" max="100" style="background-color:lightgoldenrodyellow;text-align:right;" class="DockFill ng-pristine ng-untouched ng-valid ng-valid-min ng-valid-max" ng-model="x.Target">
-          </td>
-          <td style="text-align:right" class="ng-binding">11%</td>
-          <td style="text-align:right" class="ng-binding">$6,879.90</td>
-          <td style="white-space: nowrap; background-color:lawngreen" class="ng-binding">
-              Sell 166
-          </td>
-      </tr><!-- end ngRepeat: x in stocks --><tr ng-repeat="x in stocks" class="ng-scope">
-          <td style="padding:0;">
-              <input type="text" style="background-color:lightgoldenrodyellow" class="DockFill ng-pristine ng-untouched ng-valid" ng-model="x.Symbol">
-          </td>
-          <td style="padding:0">
-              <input type="number" style="background-color:lightgoldenrodyellow; text-align:right;" class="DockFill ng-pristine ng-untouched ng-valid" ng-model="x.Quantity">
-          </td>
-          <td style="padding:0">
-              <input type="number" style="background-color:lightgoldenrodyellow;text-align:right;" class="DockFill ng-pristine ng-untouched ng-valid" ng-model="x.Price">
-          </td>
-          <td style="padding:0">
-              <input type="number" min="0" max="100" style="background-color:lightgoldenrodyellow;text-align:right;" class="DockFill ng-pristine ng-untouched ng-valid ng-valid-min ng-valid-max" ng-model="x.Target">
-          </td>
-          <td style="text-align:right" class="ng-binding">0%</td>
-          <td style="text-align:right" class="ng-binding">$0.00</td>
-          <td style="white-space: nowrap; background-color:lawngreen" class="ng-binding">
-              
-          </td>
-      </tr><!-- end ngRepeat: x in stocks --><tr ng-repeat="x in stocks" class="ng-scope">
-          <td style="padding:0;">
-              <input type="text" style="background-color:lightgoldenrodyellow" class="DockFill ng-pristine ng-untouched ng-valid" ng-model="x.Symbol">
-          </td>
-          <td style="padding:0">
-              <input type="number" style="background-color:lightgoldenrodyellow; text-align:right;" class="DockFill ng-pristine ng-untouched ng-valid" ng-model="x.Quantity">
-          </td>
-          <td style="padding:0">
-              <input type="number" style="background-color:lightgoldenrodyellow;text-align:right;" class="DockFill ng-pristine ng-untouched ng-valid" ng-model="x.Price">
-          </td>
-          <td style="padding:0">
-              <input type="number" min="0" max="100" style="background-color:lightgoldenrodyellow;text-align:right;" class="DockFill ng-pristine ng-untouched ng-valid ng-valid-min ng-valid-max" ng-model="x.Target">
-          </td>
-          <td style="text-align:right" class="ng-binding">0%</td>
-          <td style="text-align:right" class="ng-binding">$0.00</td>
-          <td style="white-space: nowrap; background-color:lawngreen" class="ng-binding">
-              
-          </td>
-      </tr><!-- end ngRepeat: x in stocks --><tr ng-repeat="x in stocks" class="ng-scope">
-          <td style="padding:0;">
-              <input type="text" style="background-color:lightgoldenrodyellow" class="DockFill ng-pristine ng-untouched ng-valid" ng-model="x.Symbol">
-          </td>
-          <td style="padding:0">
-              <input type="number" style="background-color:lightgoldenrodyellow; text-align:right;" class="DockFill ng-pristine ng-untouched ng-valid" ng-model="x.Quantity">
-          </td>
-          <td style="padding:0">
-              <input type="number" style="background-color:lightgoldenrodyellow;text-align:right;" class="DockFill ng-pristine ng-untouched ng-valid" ng-model="x.Price">
-          </td>
-          <td style="padding:0">
-              <input type="number" min="0" max="100" style="background-color:lightgoldenrodyellow;text-align:right;" class="DockFill ng-pristine ng-untouched ng-valid ng-valid-min ng-valid-max" ng-model="x.Target">
-          </td>
-          <td style="text-align:right" class="ng-binding">0%</td>
-          <td style="text-align:right" class="ng-binding">$0.00</td>
-          <td style="white-space: nowrap; background-color:lawngreen" class="ng-binding">
-              
-          </td>
-      </tr><!-- end ngRepeat: x in stocks --><tr ng-repeat="x in stocks" class="ng-scope">
-          <td style="padding:0;">
-              <input type="text" style="background-color:lightgoldenrodyellow" class="DockFill ng-pristine ng-untouched ng-valid" ng-model="x.Symbol">
-          </td>
-          <td style="padding:0">
-              <input type="number" style="background-color:lightgoldenrodyellow; text-align:right;" class="DockFill ng-pristine ng-untouched ng-valid" ng-model="x.Quantity">
-          </td>
-          <td style="padding:0">
-              <input type="number" style="background-color:lightgoldenrodyellow;text-align:right;" class="DockFill ng-pristine ng-untouched ng-valid" ng-model="x.Price">
-          </td>
-          <td style="padding:0">
-              <input type="number" min="0" max="100" style="background-color:lightgoldenrodyellow;text-align:right;" class="DockFill ng-pristine ng-untouched ng-valid ng-valid-min ng-valid-max" ng-model="x.Target">
-          </td>
-          <td style="text-align:right" class="ng-binding">0%</td>
-          <td style="text-align:right" class="ng-binding">$0.00</td>
-          <td style="white-space: nowrap; background-color:lawngreen" class="ng-binding">
-              
-          </td>
-      </tr><!-- end ngRepeat: x in stocks --><tr ng-repeat="x in stocks" class="ng-scope">
-          <td style="padding:0;">
-              <input type="text" style="background-color:lightgoldenrodyellow" class="DockFill ng-pristine ng-untouched ng-valid" ng-model="x.Symbol">
-          </td>
-          <td style="padding:0">
-              <input type="number" style="background-color:lightgoldenrodyellow; text-align:right;" class="DockFill ng-pristine ng-untouched ng-valid" ng-model="x.Quantity">
-          </td>
-          <td style="padding:0">
-              <input type="number" style="background-color:lightgoldenrodyellow;text-align:right;" class="DockFill ng-pristine ng-untouched ng-valid" ng-model="x.Price">
-          </td>
-          <td style="padding:0">
-              <input type="number" min="0" max="100" style="background-color:lightgoldenrodyellow;text-align:right;" class="DockFill ng-pristine ng-untouched ng-valid ng-valid-min ng-valid-max" ng-model="x.Target">
-          </td>
-          <td style="text-align:right" class="ng-binding">0%</td>
-          <td style="text-align:right" class="ng-binding">$0.00</td>
-          <td style="white-space: nowrap; background-color:lawngreen" class="ng-binding">
-              
-          </td>
-      </tr><!-- end ngRepeat: x in stocks -->
-  </tbody>
-  <tfoot>
-      <tr>
-          <td colspan="3"></td>
-          <td style="text-align:right" class="ng-binding">100%</td>
-          <td></td>
-          <td style="text-align:right" class="ng-binding">$64,937.80</td>
-          <td></td>
-      </tr>
-  </tfoot>               
-</table>
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Target Allocation, %</th>
+                        <th>Your Allocation, %</th>
+                        <th>Amount</th>
+                        <th style="background-color:lawngreen">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="x in stocks">
+                        <td style="padding:0;">
+                            <input type="text" style="background-color:lightgoldenrodyellow" class="DockFill" ng-model="x.Symbol" />
+                        </td>
+                        <td style="padding:0">
+                            <input type="number" style="background-color:lightgoldenrodyellow; text-align:right;" class="DockFill" ng-model="x.Quantity" />
+                        </td>
+                        <td style="padding:0">
+                            <input type="number" style="background-color:lightgoldenrodyellow;text-align:right;" class="DockFill" ng-model="x.Price" />
+                        </td>
+                        <td style="padding:0">
+                            <input type="number" min="0" max="100" style="background-color:lightgoldenrodyellow;text-align:right;" class="DockFill" ng-model="x.Target" />
+                        </td>
+                        <td style="text-align:right">{{ x.Quantity * x.Price / getTotal() * 100 | number : 0 }}%</td>
+                        <td style="text-align:right">{{ x.Quantity * x.Price | currency }}</td>
+                        <td style="white-space: nowrap; background-color:lawngreen">
+                            {{ getAction(x) }}
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3"></td>
+                        <td style="text-align:right">{{ getTotalAllocation() | number }}%</td>
+                        <td></td>
+                        <td style="text-align:right">{{ getTotal() | currency }}</td>
+                        <td></td>
+                    </tr>
+                </tfoot>               
+            </table>
