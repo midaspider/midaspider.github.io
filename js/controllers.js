@@ -98,6 +98,50 @@ appControllers.controller('PriceCtrl', ['$scope',
             { Symbol: null, Quantity: 0, Price: 0, Target: 0 }
     ];
     
+    $scope.clear = function () {
+        for (var i = 0; i < $scope.stocks.length; i++) {
+            var stock = $scope.stocks[i];
+            stock.Symbol = null;
+            stock.Quantity = 0;
+            stock.Price = 0;
+            stock.Target = 0;
+        }
+        return total;
+    }
+
+    $scope.getTotal = function () {
+        var total = 0;
+        for (var i = 0; i < $scope.stocks.length; i++) {
+            var stock = $scope.stocks[i];
+            total += (stock.Quantity * stock.Price);
+        }
+        return total;
+    }
+
+    $scope.getTotalAllocation = function () {
+        var total = 0;
+        for (var i = 0; i < $scope.stocks.length; i++) {
+            var stock = $scope.stocks[i];
+            total += stock.Target;
+        }
+        return total;
+    }
+
+    $scope.getAction = function (stock) {
+        if (stock.Quantity == 0 || stock.Target == 0)
+            return "";
+
+        var total = $scope.getTotal();
+        var totalAllocation = $scope.getTotalAllocation();
+        var targetAmount = total * stock.Target / totalAllocation;
+        var targetQuantity = targetAmount / stock.Price;
+
+        if (targetQuantity < stock.Quantity)
+            return "Sell " + Math.round(stock.Quantity - targetQuantity);
+        else
+            return "Buy " + Math.round(targetQuantity - stock.Quantity);
+    }
+    
      $scope.getLatestPrices = function () {
         $scope.yahooFinance = $resource('//finance.yahoo.com/webservice/v1/symbols/:symbol/quote?format=json&view=detail',
         { callback: 'JSON_CALLBACK' },
