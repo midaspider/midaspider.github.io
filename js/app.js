@@ -59,7 +59,7 @@ app.run(['$rootScope',
   function ($rootScope) {
      $rootScope.page = {
         setTitle: function (title) {
-           this.title = title + ' | Andy Beck';
+           this.title = title + ' | Midaspider';
         },
         setDirection: function (direction) {
            this.direction = direction;
@@ -69,7 +69,7 @@ app.run(['$rootScope',
         }
      }
      $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
-        $rootScope.page.title = current.$$route ? current.$$route.title + ' | Andy Beck' : 'Andy Beck';
+        $rootScope.page.title = current.$$route ? current.$$route.title + ' | Midaspider' : 'Midaspider';
      });
   }
 ]);
