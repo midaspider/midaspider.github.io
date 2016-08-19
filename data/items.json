@@ -74,8 +74,8 @@
     "date": "2015-03-01",
     "rgb": "2,136,209",
     "url": "fnol",
-    "title": "SCANS - FNOL (First Notification of Loss)",
-    "text": "I designed the layout, created templates and as part of a development team integrated them into the new app designed to capture accident details when a claim is first called in.",
+    "title": "SCANS - FNOL",
+    "text": "For Markerstudy Insurance Group's new FNOL app (First Notification of Loss) I designed the layout, created templates and as part of a development team integrated them into the new app designed to capture accident details when a claim is first called in.",
     "details": "Bootstrap, jQuery, JavaScript, HTML, LESS, CSS, C#, Illustrator, Visual Studio",
     "link": ""
   },
