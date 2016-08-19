@@ -1,0 +1,974 @@
+// GLOBAL MIXINS
+// -------------------------
+@mixin border {
+   box-shadow: inset 1px -1px 1px gold, inset -1px 1px 1px gold;
+}
+
+@import 'https://fonts.googleapis.com/css?family=Montserrat:400,700';
+
+$body-font-size: 14px;
+$body-font-family: 'Montserrat', sans-serif;
+
+$grid-gutter: 1px;
+
+// CoBase colours
+//$white:        rgba(255,255,255,1);
+$white-transparent: rgba(250,250,250,.75);
+$white:        rgba(250,250,250,1);
+$grey-lighter: rgba(236,239,241,1);
+$grey-light:   rgba(144,164,174,1);
+$grey:         rgba(96,125,139,1);
+$grey-dark:    rgba(69,90,100,1);
+$grey-darker:  rgba(38,50,56,1);
+$black:        rgba(0,0,0,1);
+$black-transparent: rgba(38,50,56,.25);
+$red: rgba(213,0,0,1);
+$blue: rgba(0,184,212 ,1);
+
+// Colour scheme
+$rgb-5: $white;
+$rgb-4: $grey-lighter;
+$rgb-3: $grey;
+$rgb-2: $grey-dark;
+$rgb-1: $grey-darker;
+$rgb-0: $blue;
+
+// Media Breakpoints
+$layout-breakpoint-xs:  600px !default;
+$layout-breakpoint-tablet:  760px !default;
+$layout-breakpoint-sm:  960px !default;
+$layout-breakpoint-md:  1280px !default;
+$layout-breakpoint-lg:  1600px !default;
+
+// GLOBAL STYLES
+// -------------------------
+*{
+    box-sizing: border-box;
+}
+html, body {
+    position: relative;
+    min-height: 100%;
+    height: 100%;
+    margin: 0;
+}
+body {
+    font-size: $body-font-size;
+    font-family: $body-font-family;
+    font-weight: 300;
+    margin: 0;
+    text-align: center;
+    background: $black;
+    color: $rgb-1;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+button {
+    font-family: $body-font-family;
+    background-color: transparent;
+    color: $white;
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 500;
+    &.btn-icon {
+        > span {
+            visibility: hidden;
+            position: absolute;
+            padding: 3px 6px;
+            font-weight: 300;
+            font-size: 80%;
+            background-color: $black;
+            color: $white;
+            opacity: 0;
+            transition: visibility .5s ease, opacity .5s ease;
+            &::before {
+                position: absolute;
+                content: '';
+                top: -10px;
+                left: 0;
+                border-width: 10px;
+                border-style: solid;
+                border-color: transparent transparent transparent $black;
+            }
+        }
+    }
+    .right &.btn-icon > span {
+        margin-left: -100%;
+        &::before {
+            left: auto;
+            right: 0;
+            border-width: 5px;
+            border-color: transparent $black $black transparent;
+        }
+    }
+    &.btn-text {
+        white-space: nowrap;
+        padding: 0;
+        margin-bottom: 10px;
+        text-align: left;
+        max-width: 100%;
+        span {
+            position: relative;
+            left: 10px;
+            top: 15px;
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            max-width: 85%;
+        }
+        svg {
+            border-radius: 50%;
+            background-color: $black-transparent;
+            float: left;
+            overflow: visible;
+        }
+    }
+    svg {
+        transition: fill .25s ease-in-out, padding .25s ease-in-out;
+        margin: 0;
+        padding: 13px;
+        width: 50px;
+        height: 50px;
+        fill: $white;
+        pointer-events: none;
+        display: block;
+    }
+    span {
+        text-transform: none;
+    }
+    &:hover {
+        &.btn-icon > span {
+            visibility: visible;
+            opacity: 1;
+        }
+        svg {
+            padding: 10px;
+            fill: $blue;
+        }
+    }
+}
+
+
+// HEADINGS
+// -------------------------
+h1, h2 {
+    font-family: $body-font-family;
+    font-weight: 300;
+}
+
+
+// NAVIGATION
+// -------------------------
+.navbar {
+    &.ng-hide:not(.ng-hide-animate) {
+        //opacity: .5;
+    }
+    &.ng-hide-add,
+    &.ng-hide-remove {
+        transition: all ease-in-out 0.35s;
+    }
+    &.ng-hide {
+        opacity: .5;
+        top: -50px;
+    }
+    opacity: 1;
+    background: $black-transparent;
+    position: fixed;
+    top: 0;
+    height: 50px;
+    width: 100%;
+    margin: 0 auto;
+    z-index: 10;
+    //box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    ul {
+        float: left;
+        &.right {
+            float: right;
+        }
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        li {
+            display: inline-block;
+        }
+    }
+    button {
+        transition: all .75s ease;
+        position: relative;
+        display: block;
+    }
+}
+
+
+// INTRO
+// -------------------------
+#intro {
+    transition: 1s all ease;
+    &.hide {
+        opacity: 0;
+        transform: translateY(-15%);
+        height: 0;
+        overflow: hidden;
+    }
+    .icon {
+        margin-top: 30vh;
+        svg {
+            margin: -40px auto;
+            position: relative;
+            width: 120px;
+            fill: $rgb-1;
+            pointer-events: none;
+        }
+    }
+    h1.logotype {
+        padding: 20px 40px;
+        svg {
+            position: relative;
+            min-width: 200px;
+            max-width: 460px;
+            fill: $rgb-1;
+            pointer-events: none;
+        }
+        /*letter-spacing: 10px;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 50px;
+        @media (max-width: $layout-breakpoint-xs - 1) {
+            font-size: 30px;
+        }*/
+    }
+    h2.lead {
+        margin: 0 0 10vh;
+        font-weight: 300;
+        font-size: 26px;
+        @media (max-width: $layout-breakpoint-xs - 1) {
+            font-size: 20px;
+        }
+    }
+}
+
+
+.bar {
+    width: 100%;
+    height: 50px;
+    &.top {
+        background-color: $blue;
+        .btn-icon {
+            bottom: -25px;
+        }
+    }
+    &.bottom {
+        background-color: $grey-dark;
+        position: absolute;
+        bottom: 0;
+        .btn-icon {
+            top: -25px;
+            background-color: $blue;
+            span {
+                margin-top: -75px;
+            }
+        }
+    }
+    .btn-icon {
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        margin: 0 auto;
+        background-color: $grey-dark;
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        overflow: visible;
+        svg {
+            fill: $white;
+        }
+        span {
+            font-size: 80%;
+            position: absolute;
+            text-align: center;
+            margin: 0 auto;
+            width: 150px;
+            margin-left: -75px;
+            margin-top: 5px;
+            background-color: transparent;
+            visibility: visible;
+            opacity: 1;
+            color: $grey-darker;
+            text-transform: uppercase;
+            font-weight: 500;
+            &::before {
+                display: none;
+            }
+        }
+    }
+}
+
+
+
+// GRID
+// -------------------------
+@mixin nth-delay($nth) {
+    @for $i from 1 through $nth {
+        &.fadeInUp:nth-child(#{$nth}n+#{$i}) { 
+            -webkit-animation-delay: $i * 250ms;
+            -moz-animation-delay: $i * 250ms;
+            animation-delay: $i * 250ms;
+        }
+    }
+}
+
+.list {
+    background-color: $grey-dark;
+    display: table-row;
+    position: relative;
+}
+
+.grid {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    clear: both;
+    .item {
+        list-style: none;
+        text-align: center;
+        opacity: 0;
+        opacity: .25;
+        width: 100%;
+        display: block;
+        float: left;
+        @media (min-width: $layout-breakpoint-xs) and (max-width: $layout-breakpoint-sm - 1) {
+            //flex: 0 0 calc(50% - 1px);
+            width:50%;
+            //@include nth-delay(2);
+        }
+        @media (min-width: $layout-breakpoint-sm) and (max-width: $layout-breakpoint-lg - 1) {
+            //flex: 0 0 calc(33.33% - 1px);
+            width: 33.33%;
+            //@include nth-delay(3);
+        }
+        @media (min-width: $layout-breakpoint-lg) {
+            //flex: 0 0 calc(25% - 1px);
+            width: 25%;
+            //@include nth-delay(4);
+        }
+        /*&.fadeInUp {
+	        -webkit-transform: translateY(100px);
+	        transform: translateY(100px);
+	        -webkit-animation: moveUp 0.65s ease-in-out forwards;
+	        animation: moveUp 0.65s ease-in-out forwards;
+        }*/
+        button {
+            width: 100%;
+            /* padding-bottom: 56.25%; 16:9 */
+            padding-bottom: 62.5%; /* 8:5 */
+            overflow: hidden;
+            &:hover {
+                .img {
+                    -webkit-transform: scale(1.05);
+                    -moz-transform: scale(1.05);
+                    -ms-transform: scale(1.05);
+                    -o-transform: scale(1.05);
+                    transform: scale(1.05);
+                    opacity: .15;
+                }
+                .txt {
+                    opacity: 1;
+                    span {
+                        margin: 40px 30px 30px;
+                    }
+                }
+                svg {
+                    -webkit-transform: scale(2.5);
+                    -moz-transform: scale(2.5);
+                    -ms-transform: scale(2.5);
+                    -o-transform: scale(2.5);
+                    transform: scale(2.5);
+                    opacity: 1;
+                    fill: $white;
+                }
+            }
+            svg {
+                padding: 0;
+                transition: opacity .35s ease-in-out, transform .35s ease-in-out;
+                -webkit-transform: scale(.5);
+                -moz-transform: scale(.51);
+                -ms-transform: scale(.5);
+                -o-transform: scale(.5);
+                transform: scale(.5);
+                opacity: 0;
+                position: absolute;
+                right: 30px;
+                bottom: 30px;
+                width: 24px;
+                height: 24px;
+                z-index: 2;
+            }   
+            > div {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+	            transition: all .35s ease;
+            }
+            .img {
+                -webkit-transform: scale(1);
+                -moz-transform: scale(1);
+                -ms-transform: scale(1);
+                -o-transform: scale(1);
+                transform: scale(1);
+                background-repeat: no-repeat;
+                background-size: cover;
+	            background-position: center;
+            }
+            .txt {
+                //background: rgba(26,36,52,0.75);
+                opacity: 0;
+                span {
+                    transition: margin .35s ease-in-out;
+                    display: block;
+                    padding: 10px 0;
+                    margin: 60px 30px 30px;
+                    font-weight: 300;
+                    font-size: 25px;
+                    text-align: left;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    font-weight: 300;
+                    color: $rgb-5;
+                }
+            }
+        }
+    }
+}
+@-webkit-keyframes moveUp {
+	0% { }
+	100% { -webkit-transform: translateY(0); opacity: 1; }
+}
+@keyframes moveUp {
+	0% { }
+	100% { -webkit-transform: translateY(0); transform: translateY(0); opacity: 1; }
+}
+
+// NG-REPEAT TRANSITIONS
+// -------------------------
+.repeat_animation {
+   &.ng-enter-stagger,
+   &.ng-leave-stagger,
+   &.ng-move-stagger {
+      -webkit-transition-delay: .2s;
+      transition-delay: .2s;
+      -webkit-transition-duration: 0s;
+      transition-duration: 0s;
+      &.item {
+         -webkit-transition-delay: .1s;
+         transition-delay: .1s;
+      }
+   }
+   &.ng-enter,
+   &.ng-leave,
+   &.ng-move {
+     -webkit-transition: opacity .5s;
+     transition: opacity .5s;
+   }
+   /*
+      // from & to opacity set in animateOnLoad directive
+      &.ng-leave.ng-leave-active,
+      &.ng-enter,
+      &.ng-move {
+         opacity: 0;
+      }
+      &.ng-leave,
+      &.ng-move.ng-move-active,
+      &.ng-enter.ng-enter-active {
+         opacity: 1;
+      }
+   */
+}
+
+
+.detail {
+    display: table-row;
+    &.home {
+        background-color: $white;
+    }
+    &.information {
+        background-color: $blue;
+        text-align: left;
+        .card {
+            padding-top: 20px;
+            .wrapper {
+                margin: 0 20px;
+            }
+            .title {
+                margin: 0;
+                float: left;
+            }
+            .img {
+                width: 50%;
+                float: right;
+                img {
+                    box-shadow: none;
+                    max-height: 250px;
+                    margin: 0 auto;
+                }
+            }
+            .links {
+                list-style: none;
+                padding: 25px 0 0;
+                width: 50%;
+                float: left;
+            }
+            .content {
+                clear: both;
+            }
+            .skills {
+                margin: 0 20px;
+                clear: both;
+                ul {                    
+                    background-color: $black-transparent;
+                    padding: 20px;
+                    li {
+                        margin-left: 20px;
+                        margin-bottom: 10px;
+                        list-style-type: none;
+                        position: relative;
+                        //overflow: hidden;
+                        &::after {
+                            display: block;
+                            position: absolute;
+                            left: -20px;
+                            top: 2px;
+                            content: '';
+                            display: block;
+                            width: 5px;
+                            height: 10px;
+                            border: solid $white;
+                            border-width: 0 2px 2px 0;
+                            transform: rotate(45deg);
+                        }
+                    }
+
+                }
+            }
+            @media (min-width: $layout-breakpoint-tablet) {
+                //padding-top: 0;
+                .wrapper {
+                    margin: 50px;
+                    //border: 1px red dotted;
+                }
+                .title {
+                    float: right;
+                    width: 50%;
+                    font-size: 40px;
+                }
+                .img {
+                    float: left;
+                    img {
+                        max-height: 450px;
+                    }
+                }
+                .links {
+                    width: 50%;
+                    float: right;
+                }
+                .content {
+                    float: right;
+                    width: 50%;
+                    clear: right;
+                }                
+                .skills {
+                    margin: 0 -10px;
+                    div {
+                        width: 33.33%;
+                        float: left;
+                    }
+                    ul {
+                        margin: 0 10px;
+                    }
+                }
+            }
+            
+            @media (min-width: $layout-breakpoint-tablet) {
+                //padding-top: 0;
+                .wrapper {
+                    margin: 0 50px;
+                    //border: 1px red dotted;
+                }
+            }
+        }
+    }
+    .card {
+        margin: 50px auto 0;
+        max-width: 1240px;
+        color: $rgb-5;
+        border-radius: 2px;
+        .info {
+            padding: 25px 25px 50px;
+            text-align: left;
+            line-height: 1.5;
+        }
+        h1 {
+            font-size: 25px;
+            line-height: 1;
+            font-weight: 100;
+            margin: 0;
+        }
+        .tags {
+            font-weight: 500;
+            font-size: 80%;
+        }
+        p {
+            text-align: justify;
+        }
+        .btn.link {
+            margin-bottom: 20px;
+        }
+        .img {
+            svg {
+                height: auto;
+                max-width: 100%;
+                -webkit-user-drag: none;
+            }
+            img {
+                box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
+                display: block;
+                max-width: 100%;
+                height: auto;
+                /* padding-bottom: 56.25%; 16:9 */
+                /* padding-bottom: 62.5%; 8:5 */
+                -webkit-user-drag: none;
+                opacity: .5;
+                transition: all .5s ease-in-out;
+            }
+            &.loaded {
+                img {
+                    opacity: 1;
+                }
+                .spinner {
+                    opacity: 0;
+                    transition: opacity .5s ease;
+                }
+            }
+        }
+    }
+    .control {
+        cursor: pointer;
+        outline: none;
+        transition: all .5s ease;
+        position: absolute;
+        top: 1px;
+        bottom: 0;
+        left: 0;
+        //background-color: rgba(0,0,0,.001);
+        &.prev {
+            button {
+                svg {
+                    float: left;
+                }
+                img {
+                    float: right;
+                }
+                left: 0;
+            }
+        }
+        &.next {
+            right: 0;
+            left: auto;
+            button {
+                svg {
+                    float: right;
+                }
+                img {
+                    float: left;
+                }
+                right: 0;
+            }
+        }
+        button {
+            position: absolute;
+            overflow: visible;
+            bottom: 0;
+            width: 130px;
+            img {
+                height: 50px;
+                width: auto;
+                display: block;
+            }
+            span {
+                display: none;
+            }
+            svg {
+                background-color: $white;
+                fill: $black;
+            }
+        }
+    }
+    @media (min-width: $layout-breakpoint-sm) {
+        .card {
+            margin: 100px auto 0;
+            padding: 0 50px;
+            vertical-align: bottom;
+            .img {
+                width: 66.66%;
+                float: left;
+                display: inline-block;
+            }
+            .info {
+                padding: 0 0 0 25px;
+                width: 33.33%;
+                float: right;
+                display: inline-block;
+            }
+            h1 {
+                font-size: 40px;
+                padding: 0;
+            }
+            .tags {
+                margin: 20px 0 40px;
+            }
+            p {
+                margin: 15px 0 15px;
+            }
+        }
+        .control.prev,
+        .control.next {
+            opacity: 0;
+            bottom: 0;
+            top: 0;
+            width: 20%;
+            button {
+                bottom: 50%;
+                width: 50px;
+                transition: all .35s ease-in-out;
+                z-index: 2;
+                svg {
+                    position: relative;
+                    transition: all .35s ease-in-out;
+                    background-color: $black-transparent;
+                    fill: $white;
+                }
+                .thumb {
+                    position: absolute;
+                    overflow: hidden;
+                    width: 0;
+                    height: 100px;
+                    transition: all .35s ease-in-out;
+                }
+                img {
+                    opacity: 0;
+                    transition: all .35s ease-in-out;
+                }
+            }            
+            &.prev {
+                button .thumb {                    
+                    left: 50px;
+                }
+            }
+            &.next {
+                right: 0;
+                left: auto;
+                button .thumb {                    
+                    right: 50px;
+                }
+            }
+        }
+        &:hover {
+            .control {
+                opacity: 1;
+                &:hover {
+                    //opacity: 1;
+                    &.prev {
+                        button {
+                            .thumb {
+                                left: 100px;
+                            }
+                        }
+                    }
+                    &.next {
+                        button {
+                            .thumb {
+                                right: 100px;
+                            }
+                        }
+                    }
+                    button {
+                        box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24);
+                        width: 260px;
+                        margin-bottom: -10%;
+                        .thumb {
+                            width: 160px;
+                        }
+                        img {
+                            opacity: 1;
+                            height: 100px;
+                        }
+                        svg {
+                            height: 100px;
+                            width: 100px;
+                            background-color: $white;
+                            fill: $black;
+                        }
+                    }
+                    span {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+// PAGE VIEW TRANSITIONS
+// -------------------------
+.view-animate-container {
+    position: relative;
+    height: 100%;
+    min-height: 100%;
+}
+.view-animate {
+    -webkit-transition: opacity .5s ease-in-out, left .5s ease-in-out, top .5s ease-in-out, transform .5s ease-in-out;
+    transition: opacity .5s ease-in-out, left .5s ease-in-out, top .5s ease-in-out, transform .5s ease-in-out;
+    position: absolute;
+    //display: block;
+    display: table;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /*&.ng-enter,
+    &.ng-leave {}
+    &.ng-enter {
+        opacity: 0;
+        &.ng-enter-active {
+            opacity: 1;
+        }
+    }
+    &.ng-leave.ng-leave-active {
+        opacity: 0;
+    }*/
+    .zoom-in & {
+        &.ng-enter {
+            opacity: 0;
+            transform: scale(.5);
+            &.ng-enter-active {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        &.ng-leave.ng-leave-active {
+            opacity: 0;
+            .item {
+                transform: scale(.25);
+                transition: transform .5s ease-in-out;
+            }
+        }
+    }
+    .zoom-out & {
+        &.ng-enter {
+            opacity: 0;
+            transform: scale(.5);
+            &.ng-enter-active {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        &.ng-leave.ng-leave-active {
+            opacity: 0;            
+            transform: scale(.25);
+        }
+    }
+    .fade & {
+        &.ng-enter {
+            opacity: 0;
+            &.ng-enter-active {
+                opacity: 1;
+            }
+        }
+        &.ng-leave.ng-leave-active {
+            opacity: 0;
+        }
+    }
+    .backward & {
+        &.ng-enter {
+            left: 100%;
+            &.ng-enter-active {
+                left: 0;
+            }
+        }
+        &.ng-leave.ng-leave-active {
+            left: -100%;
+        }
+    }
+    .forward & {
+        &.ng-enter {
+            left: -100%;
+            &.ng-enter-active {
+                left: 0;
+            }
+        }
+        &.ng-leave.ng-leave-active {
+            left: 100%;
+        }
+    }
+    .up & {
+        &.ng-enter {
+            top: 100%;
+            &.ng-enter-active {
+                top: 0;
+            }
+        }
+        &.ng-leave.ng-leave-active {
+            top: -100%;
+        }
+    }
+    .down & {
+        &.ng-enter {
+            top: -100%;
+            &.ng-enter-active {
+                top: 0;
+            }
+        }
+        &.ng-leave.ng-leave-active {
+            top: 100%;
+        }
+    }
+}
+
+
+// SPINNER
+// -------------------------
+@keyframes spinner {
+   to {transform: rotate(360deg);}
+}
+@-webkit-keyframes spinner {
+   to {-webkit-transform: rotate(360deg);}
+}
+.spinner {
+   &:before {
+      content: 'Loading…';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 80px;
+      height: 80px;
+      margin-top: -40px;
+      margin-left: -40px;
+   }
+   &:not(:required):before {
+      content: '';
+      border-radius: 50%;
+      border: 4px solid rgba(0, 0, 0, .1);
+      border-top-color: rgba(0, 0, 0, .2);
+      animation: spinner .75s linear infinite;
+      -webkit-animation: spinner .75s linear infinite;
+   }
+}

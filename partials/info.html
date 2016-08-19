@@ -1,0 +1,86 @@
+<section class="detail information">
+
+    <div class="card">
+
+        <div class="wrapper">
+
+            <h1 class="title">Info</h1>
+
+            <div class="img">
+                <div class="spinner"></div>
+                <img ng-src="images/andy.png" alt="andy" onload="imgLoaded(this)">
+            </div>
+
+            <ul class="links">
+                <li>
+                    <button class="btn-text" aria-label="mobile" ng-click="goUrl('tel:0116134007915')">
+                        <svg viewBox="0 0 24 24"><use xlink:href="svg/icons.svg#telephone" /></svg>
+                        <span>613-400-7915</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn-text" aria-label="email" ng-click="goUrl('mailto:midaspider@gmail.com')">
+                        <svg viewBox="0 0 24 24"><use xlink:href="svg/icons.svg#email" /></svg>
+                        <span>midaspider@gmail.com</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn-text" aria-label="linkedin" ng-click="goUrl('http://www.linkedin.com/in/andybeckdesign')" target="_blank">
+                        <svg viewBox="0 0 24 24"><use xlink:href="svg/icons.svg#linkedin" /></svg>
+                        <span>LinkedIn</span>
+                    </button>
+                </li>
+            </ul>
+
+            <div class="content">
+                <p>
+                    Web designer and front-end developer, with over 20 years of experience designing for web.
+                </p>
+                <p>
+                    Experienced in designing and producing 'mobile first' standards compliant layouts. The web is constantly evolving so I'm always learning new design tools and web technologies to keep my skills up to date.
+                </p>
+                <p>
+                    I'm based in Ottawa, Ontario.
+                </p>
+
+                <button class="btn-text" ng-click="goPath('/portfolio'); page.setDirection('up');">
+                    <svg viewBox="0 0 24 24"><use xlink:href="svg/icons.svg#portfolio" /></svg>
+                    <span>Open portfolio</span>
+                </button>
+            </div>
+
+        </div>
+
+        <!--<div class="skills">
+            <div>
+                <ul>
+                    <li>Illustrator</li>
+                    <li>Fireworks</li>
+                    <li>Photoshop</li>
+                    <li>Blender</li>
+                    <li>Visual Studio</li>
+                    <li>Brackets</li>
+                    <li>Flash</li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li>HTML</li>
+                    <li>JavaScript</li>
+                    <li>AngularJS</li>
+                    <li>CSS, LESS &amp; SCSS</li>
+                    <li>PHP, C# &amp; ASP</li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li>Bootstrap</li>
+                    <li>UI-Bootstrap</li>
+                    <li>Angular Material</li>
+                </ul>
+            </div>
+        </div>-->
+        
+    </div>
+
+</section>

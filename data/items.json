@@ -1,0 +1,152 @@
+[
+  {
+    "category": "App",
+    "date": "2016-02-01",
+    "rgb": "3,155,229",
+    "url": "intervention",
+    "title": "Markerstudy Intervention App (MIA)",
+    "text": "Insurance web app, built in AngularJS, the stying was based on Angular Material framework with the addition of many custom built elements.",
+    "details": "AngularJS, jQuery, JavaScript, C#, Angular Material, HTML, SCSS, CSS, Visual Studio, Illustrator",
+    "link": ""
+  },
+  {
+    "category": "Website",
+    "date": "2016-01-01",
+    "rgb": "255,146,0",
+    "url": "wildturnbull",
+    "title": "Wild Turnbull",
+    "text": "Logo and single page website for chartered accountants Wild Turnbull.",
+    "details": "Bootstrap, jQuery, JavaScript, HTML, CSS",
+    "link": "http://www.wildturnbull.com"
+  },
+  {
+    "category": "Website",
+    "date": "2015-12-01",
+    "rgb": "65,181,230",
+    "url": "autowindscreens",
+    "title": "Auto Windscreens",
+    "text": "I was asked to produce a new responsive design and templates for the site. A major part of the work was the design and development of a complex multi-step javascript booking form. I created a series of form templates, using jQuery and incorporating clickable SVG elements to gather information about damaged auto glass. I also textured and rendered a 3D model of a van from their new fleet.",
+    "details": "Bootstrap, jQuery, JavaScript, HTML, CSS, SVG, Illustrator, Fireworks, Visual Studio",
+    "link": "https://www.autowindscreens.co.uk"
+  },
+  {
+    "category": "Illustration",
+    "date": "2015-11-01",
+    "rgb": "95,177,154",
+    "url": "bigdata",
+    "title": "Big Data",
+    "text": "Animated slides for a presentation about big data, I used a 1950's style to illustrate various points arround the theme of the nuclear family.",
+    "details": "Illustrator, PowerPoint",
+    "link": ""
+  },
+  {
+    "category": "Website",
+    "date": "2015-09-01",
+    "rgb": "136,14,79",
+    "url": "zenithaviation",
+    "title": "Zenith Aviation",
+    "text": "Website for private charter jet company, developed a flight booking form in javascript, incorporating Bootstrap's Typeahead and Date/Time Picker.",
+    "details": "Bootstrap, jQuery, JavaScript, HTML, LESS CSS, Fireworks, Visual Studio",
+    "link": "https://www.zenithaviation.co.uk"
+  },
+  {
+    "category": "Website",
+    "date": "2015-07-01",
+    "rgb": "42,99,154",
+    "url": "lancasterinsurance",
+    "title": "Lancaster Insurance",
+    "text": "Designed and produced a Bootstrap website template, the theme had to incoprporate certain vintage elements but still maintain a current look and feel.",
+    "details": "Bootstrap, jQuery, JavaScript, HTML, CSS, C#",
+    "link": "https://www.lancasterinsurance.co.uk"
+  },
+  {
+    "category": "Website",
+    "date": "2015-05-01",
+    "rgb": "42,99,154",
+    "url": "andybeck",
+    "title": "Painting Gallery",
+    "text": "My very own artwork portfolio site built in AngularJS with a customised Angular Material framework.",
+    "details": "AngularJS, jQuery, JavaScript, HTML, SCSS, CSS, Blogger API",
+    "link": "http://www.andybeck.co.uk"
+  },
+  {
+    "category": "App",
+    "date": "2015-03-01",
+    "rgb": "2,136,209",
+    "url": "fnol",
+    "title": "SCANS - FNOL (First Notification of Loss)",
+    "text": "I designed the layout, created templates and as part of a development team integrated them into the new app designed to capture accident details when a claim is first called in.",
+    "details": "Bootstrap, jQuery, JavaScript, HTML, LESS, CSS, C#, Illustrator, Visual Studio",
+    "link": ""
+  },
+  {
+    "category": "Website",
+    "date": "2015-01-01",
+    "rgb": "114,159,30",
+    "url": "petwise",
+    "title": "Petwise Health Insurance",
+    "text": "Responsive website design was intended to give a freindly face to a lot of insurance jargon, including things like policy comparison tables and a quoting system.",
+    "details": "Bootstrap, jQuery, JavaScript, HTML, LESS, CSS",
+    "link": "https://www.petwise-insurance.com"
+  },
+  {
+    "category": "Website",
+    "date": "2014-08-01",
+    "rgb": "64,64,64",
+    "url": "39charles",
+    "title": "39 Charles Street",
+    "text": "Design and build of a single page scrolling website for a prestigious real estate development in central London.",
+    "details": "Bootstrap, jQuery, JavaScript, HTML, LESS, CSS, Google Maps",
+    "link": "https://www.39charlesstreet.com"
+  },
+  {
+    "category": "Website",
+    "date": "2014-06-01",
+    "rgb": "194,23,57",
+    "url": "ndga",
+    "title": "NDGA",
+    "text": "I designed and produced responsive templates for the Next Dimension Gymnastics Academy.",
+    "details": "Bootstrap, jQuery, JavaScript, HTML, LESS, CSS",
+    "link": "https://www.ndga-uk.com"
+  },
+  {
+    "category": "Website",
+    "date": "2010-01-01",
+    "rgb": "96,194,239",
+    "url": "centrinet",
+    "title": "CentriNet",
+    "text": "I was commissioned to create a completely new logo and website for IT Security firm CentriNet. for the logo I used interlocking shapes derived from the lowercase 'c' and 'n' of the company name to form an abstract shape reminiscent of a chain link.",
+    "details": "Wordpress, PHP, JavaScript, HTML, CSS, Fireworks, Illustrator",
+    "link": ""
+  },
+  {
+    "category": "UI",
+    "date": "2006-01-01",
+    "rgb": "0,0,0",
+    "url": "black",
+    "title": "BLACK",
+    "text": "Produced the level selection screens and in game HUD (head-up display) for the revolutionary shoot 'em up 'BLACK' by Criterion Games (published by EA Games).",
+    "details": "Flash, Photoshop",
+    "link": "http://www.ea.com/black"
+  },
+  {
+    "category": "Website",
+    "date": "2005-12-01",
+    "rgb": "6,132,206",
+    "url": "smartbunker",
+    "title": "Smartbunker",
+    "text": "I was asked to design a logo and website for the secure datacenter situated in a decomissioned nuclear bunker. I also created a 3D rendered interactive animation to illustrate the features of the unique datacenter.",
+    "details": "Wordpress, PHP, HTML, CSS, JavaScript, Blender, Flash, Fireworks",
+    "link": ""
+  },
+  {
+    "category": "UI",
+    "date": "2005-10-01",
+    "rgb": "223,132,41",
+    "url": "gobletoffirepsp",
+    "title": "Harry Potter & the Goblet of Fire",
+    "text": "EA Games hired me to redesign the selection and setting screens for the Sony PSP version of their soon to be released video game. I also produced graphics for a selection of mini games exclusive to the PSP version of the title.",
+    "details": "Flash, Photoshop",
+    "link": ""
+  }
+]

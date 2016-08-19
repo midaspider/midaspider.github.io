@@ -1,0 +1,32 @@
+// INDEX OF ANIMATIONS
+// This is a port of Den Eden's Animate.css, converted for SASS.
+// Source: https://daneden.me/animate/
+//
+// @import this index into your project.
+// Comment out categories below to remove them from your project.
+// Or, @import specific partials (e.g. @import "_attention/_bounce.scss";
+//
+//-----------------------------------------------------------------------
+
+// Always required
+@import
+  "animate-scss/_properties";
+
+// Import the animations
+@import
+  "animate-scss/_fading-entrances/fadeInUp",
+  "animate-scss/_fading-exits/fadeOutUp",
+/*"animate-scss/_attention-seekers/attention-seekers.scss",
+  "animate-scss/_bouncing-entrances/bouncing-entrances.scss",
+  "animate-scss/_bouncing-exits/bouncing-exits.scss",
+  "animate-scss/_fading-entrances/fading-entrances.scss",
+  "animate-scss/_fading-exits/fading-exits.scss",
+  "animate-scss/_flippers/flippers.scss",
+  "animate-scss/_lightspeed/lightspeed.scss",
+  "animate-scss/_rotating-entrances/rotating-entrances.scss",
+  "animate-scss/_rotating-exits/rotating-exits.scss",
+  "animate-scss/_sliding-entrances/sliding-entrances.scss",
+  "animate-scss/_sliding-exits/sliding-exits.scss",
+  "animate-scss/_specials/specials.scss",*/
+  "animate-scss/_zooming-entrances/zooming-entrances.scss",
+  "animate-scss/_zooming-exits/zooming-exits.scss";

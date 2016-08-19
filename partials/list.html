@@ -1,0 +1,13 @@
+<section class="list">
+
+    <ul class="grid">
+        <li class="item repeat_animation" ng-repeat="item in items" animate-on-load>
+            <button ng-click="goPath('/portfolio/'+item.url); page.setDirection('zoom-in');">
+                <svg viewBox="0 0 24 24"><use xlink:href="svg/icons.svg#expand" /></svg>
+                <div class="txt" style="background-color:rgba({{item.rgb}},0.8)"><span>{{item.title}}</span></div>
+                <div class="img" ng-style="{'background-image':'url(images/'+item.url+'.jpg)'}"></div>
+            </button>
+        </li>
+    </ul>
+
+</section>

@@ -1,0 +1,326 @@
+﻿// GLOBAL MIXINS
+// -------------------------
+@import "fonts";
+
+@mixin border {
+   box-shadow: inset 1px -1px 1px gold, inset -1px 1px 1px gold;
+}
+
+$gray-darker:  #222;
+$gray-dark:    #333;
+$gray:         #555;
+$gray-light:   #777;
+$gray-lighter: #eee;
+
+$body-font-size-base: 14px;
+
+$grid-gutter: 1px;
+
+$layout-breakpoint-xs:  600px !default;
+$layout-breakpoint-sm:  960px !default;
+$layout-breakpoint-md:  1280px !default;
+$layout-breakpoint-lg:  1920px !default;
+
+
+// GLOBAL STYLES
+// -------------------------
+body {
+    font-size: $body-font-size-base;
+    //font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    //max-width: 1250px;
+    //margin: 0 auto !important;
+    //padding: 0 $grid-gutter;
+    margin: 0;
+    line-height: 1;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    background: #1a2434;
+    color: #b0b6c1;
+}
+
+.hero,
+.intro,
+.grid .item {
+    visibility: hidden;
+}
+
+.box {
+    .red & {
+        background: #e31d65
+    }
+    .orange & {
+        background: #ff7c35
+    }
+    .yellow & {
+        background: #fc0
+    }
+    .green & {
+        background: #2ead6d
+    }
+    .blue & {
+        background: #008597
+    }
+    .purple & {
+        background: #5943aa
+    }
+    .slate & {
+        background: #2d3443
+    }
+}
+
+
+// HEADER STYLES
+// -------------------------
+.header {
+    box-sizing: border-box;
+    position: fixed;
+    top: -64px;
+    z-index: 1;
+    overflow: hidden;
+    padding: 8px 4vw;
+    width: 100%;
+    background: #1a2434;
+    box-shadow: 0 2px 6px rgba(26, 36, 52, .5);
+    -webkit-transition: top .6s cubic-bezier(.6, .2, .1, 1);
+    transition: top .6s cubic-bezier(.6, .2, .1, 1);
+}
+
+.header.visible {
+    top: 0
+}
+
+.header .title {
+    float: left;
+    line-height: 46px;
+    font-size: 16px;
+    position: relative;
+    top: 2px
+}
+
+@media screen and (min-width:28.75em) {
+    .header .title {
+        font-size: 24px;
+        top: 0
+    }
+}
+
+@media screen and (min-width:33.75em) {
+    .header .title {
+        font-size: 32px
+    }
+}
+
+.header .logo {
+    margin-top: 16px;
+    margin-right: 8px;
+    float: left;
+    width: 24px;
+    height: 16px
+}
+
+@media screen and (min-width:28.75em) {
+    .header .logo {
+        margin-top: 12px;
+        margin-right: 12px;
+        width: 32px;
+        height: 24px
+    }
+}
+
+@media screen and (min-width:33.75em) {
+    .header .logo {
+        margin-top: 8px;
+        margin-right: 16px;
+        width: 48px;
+        height: 32px
+    }
+}
+
+.header .button {
+    font-size: 13px;
+    padding: 9px 12px;
+    float: right;
+    margin-top: 8px;
+    margin-left: 16px
+}
+
+
+// HERO STYLES
+// -------------------------
+.hero {
+    padding: 8vw 0
+}
+
+.hero .logo {
+    vertical-align: sub;
+    margin-right: 16px;
+    width: 48px;
+    height: 32px
+}
+
+@media screen and (min-width:28.75em) {
+    .hero .logo {
+        width: 72px;
+        height: 48px;
+        margin-right: 24px
+    }
+}
+
+@media screen and (min-width:48em) {
+    .hero .logo {
+        width: 96px;
+        height: 64px;
+        margin-right: 32px
+    }
+}
+
+.hero .title {
+    display: inline-block;
+    font-size: 32px;
+    margin: 32px 0 28px
+}
+
+@media screen and (min-width:28.75em) {
+    .hero .title {
+        font-size: 48px
+    }
+}
+
+@media screen and (min-width:48em) {
+    .hero .title {
+        font-size: 72px;
+        margin-bottom: 44px
+    }
+}
+
+.hero .intro {
+    font-size: 18px;
+    color: #616c83;
+    padding: 0 16vw;
+    padding-bottom: 32px;
+    border-bottom: 1px dashed #2d3443
+}
+
+@media screen and (min-width:28.75em) {
+    .hero .intro {
+        font-size: 24px;
+        padding: 0 14vw 48px
+    }
+}
+
+@media screen and (min-width:33em) {
+    .hero .intro {
+        padding: 0 8vw 48px
+    }
+}
+
+.hero .button {
+    margin-left: 16px
+}
+
+
+// DEMO STYLES
+// -------------------------
+
+.grid {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    /*border: 10px red solid;*/
+    .item {
+        flex: 0 0 calc(33.33% - 1px);
+        text-align: center;
+        background-color: steelblue;
+        margin: .5px;
+        .box {
+            opacity: 0;
+            width: 100%;
+            padding-bottom: 66.25%; /* 16:9 */
+            position: relative;
+            &.show {
+                opacity: 1;
+            }
+            a {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                text-align: center;
+            }
+        }
+    }
+}
+/*
+@media screen and (min-width:28.75em) {
+    .grid {
+        height: 400vh
+    }
+}*/
+
+
+
+//
+@-webkit-keyframes a {
+    0% {
+        -webkit-transform: scale(1)
+    }
+    50% {
+        -webkit-transform: scale(.8)
+    }
+}
+
+@-webkit-keyframes a {
+    0%,
+    to {
+        -webkit-transform: scale(1)
+    }
+    0% {
+        transform: scale(1)
+    }
+    50% {
+        -webkit-transform: scale(.8);
+        transform: scale(.8)
+    }
+    to {
+        -webkit-transform: scale(1);
+        transform: scale(1)
+    }
+}
+
+@keyframes a {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1)
+    }
+    50% {
+        -webkit-transform: scale(.8);
+        transform: scale(.8)
+    }
+    to {
+        -webkit-transform: scale(1);
+        transform: scale(1)
+    }
+}
+
+
+// Effect 2: Move Up
+.grid .box.move-up {
+	-webkit-transform: translateY(200px);
+	transform: translateY(200px);
+	-webkit-animation: moveUp 0.65s ease forwards;
+	animation: moveUp 0.65s ease forwards;
+}
+
+@-webkit-keyframes moveUp {
+	0% { }
+	100% { -webkit-transform: translateY(0); opacity: 1; }
+}
+
+@keyframes moveUp {
+	0% { }
+	100% { -webkit-transform: translateY(0); transform: translateY(0); opacity: 1; }
+}

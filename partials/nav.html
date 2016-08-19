@@ -1,0 +1,31 @@
+<div id="navbar" class="navbar" ng-controller="NavCtrl" role="navigation" ng-show="page.navState" ng-class="page.navState">
+    <ul>
+        <li>
+            <button class="btn-icon" aria-label="midaspider" ng-click="goHome('/');">
+                <svg viewBox="0 0 24 24"><use xlink:href="svg/icons.svg#mspider" /></svg>
+                <span>Home</span>
+            </button>
+        </li>
+        <li>
+            <button class="btn-icon" aria-label="info" ng-click="goPath('/info'); page.setDirection('down');">
+                <svg viewBox="0 0 24 24"><use xlink:href="svg/icons.svg#info" /></svg>
+                <span>Info</span>
+            </button>
+        </li>
+        <li>
+            <button class="btn-icon" aria-label="portfolio" ng-click="goPath('/portfolio'); page.setDirection('up');">
+                <svg viewBox="0 0 24 24"><use xlink:href="svg/icons.svg#portfolio" /></svg>
+                <span>Portfolio</span>
+            </button>
+
+        </li>
+    </ul>
+    <ul class="right">
+        <li>
+            <button class="btn-icon" aria-label="close" ng-click="closeView();">
+                <svg viewBox="0 0 24 24"><use xlink:href="svg/icons.svg#close" /></svg>
+                <span>Close</span>
+            </button>
+        </li>
+    </ul>
+</div>
