@@ -14,6 +14,7 @@ var app = angular.module('app', [
   , 'ngAnimate'
   , 'ngSanitize'
   , 'ngTouch'
+  , 'swipe'
   , 'angular-google-analytics'
   //, 'SmoothScrollbar'
   , 'appCtrl'
