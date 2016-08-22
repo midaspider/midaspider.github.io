@@ -53,15 +53,11 @@ appCtrl.controller('NavCtrl', ['$scope', '$location', 'settings',
 appCtrl.controller('HomeCtrl', ['$scope', '$location', 'settings', 
     function ($scope, $location, settings) {
 
-        //$scope.page.setDirection('fade');
-
         $scope.goPath = function (path) {
             $location.path(path);
         };
 
         $scope.page.navOpen(false);
-        //$scope.page.navState = false;
-        //console.log($scope.page.navState);
 
         //$scope.navStuck = function () {
         //    angular.element(document.querySelector('#navbar')).addClass('stuck');
