@@ -127,11 +127,11 @@ app.run(['$rootScope', 'settings',
            },
            setDirection: function (newDirection) {
                this.direction = newDirection;
-               console.log('direction: ' + this.direction);
+               //console.log('direction: ' + direction);
            },
            navOpen: function (newState) {
                this.navState = newState;
-               //console.log('intro state: ' + introState);
+               //console.log('nav state: ' + navState);
            }
        }
        $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
