@@ -735,10 +735,11 @@ h1, h2 {
             top: 0;
             width: 20%;
             button {
-                bottom: 50%;
-                width: 50px;
                 transition: all .35s ease-in-out;
                 z-index: 2;
+                bottom: 50%;
+                margin-bottom: -25px;
+                width: 50px;
                 svg {
                     position: relative;
                     transition: all .35s ease-in-out;
@@ -791,8 +792,8 @@ h1, h2 {
                     }
                     button {
                         box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24);
+                        margin-bottom: -50px;
                         width: 260px;
-                        margin-bottom: -10%;
                         .thumb {
                             width: 160px;
                         }
