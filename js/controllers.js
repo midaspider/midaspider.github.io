@@ -1,7 +1,6 @@
 'use strict';
 
 /* CONTROLLERS */
-
 var appCtrl = angular.module('appCtrl', []);
 
 
@@ -16,6 +15,16 @@ appCtrl.controller('FooterCtrl', ['$scope', '$sce', 'settings',
 /* NAVIAGTION controller */
 appCtrl.controller('NavCtrl', ['$scope', '$location', 'settings',
   function ($scope, $location, settings) {
+
+      function is_touch_device() {
+          return 'ontouchstart' in window || navigator.maxTouchPoints;
+      };
+
+      if (is_touch_device()) {
+          angular.element(document.querySelector('body')).addClass('touch');
+      } else {
+          angular.element(document.querySelector('body')).addClass('no-touch');
+      }
 
       $scope.goPath = function (path) {
           $location.path(path);
@@ -53,11 +62,15 @@ appCtrl.controller('NavCtrl', ['$scope', '$location', 'settings',
 appCtrl.controller('HomeCtrl', ['$scope', '$location', 'settings', 
     function ($scope, $location, settings) {
 
+        //$scope.page.setDirection('fade');
+
         $scope.goPath = function (path) {
             $location.path(path);
         };
 
         $scope.page.navOpen(false);
+        //$scope.page.navState = false;
+        //console.log($scope.page.navState);
 
         //$scope.navStuck = function () {
         //    angular.element(document.querySelector('#navbar')).addClass('stuck');
