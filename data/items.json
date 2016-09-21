@@ -5,7 +5,7 @@
     "rgb": "3,155,229",
     "url": "intervention",
     "title": "Markerstudy Intervention App (MIA)",
-    "text": "Insurance web app, built in AngularJS, the stying was based on Angular Material framework with the addition of many custom built elements.",
+    "text": "Insurance web app, built in AngularJS, the styling was based on the Angular Material framework with the addition of many custom built elements.",
     "details": "AngularJS, jQuery, JavaScript, C#, Angular Material, HTML, SCSS, CSS, Visual Studio, Illustrator",
     "link": ""
   },
@@ -25,8 +25,8 @@
     "rgb": "65,181,230",
     "url": "autowindscreens",
     "title": "Auto Windscreens",
-    "text": "I was asked to produce a new responsive design and templates for the site. A major part of the work was the design and development of a complex multi-step javascript booking form. I created a series of form templates, using jQuery and incorporating clickable SVG elements to gather information about damaged auto glass. I also textured and rendered a 3D model of a van from their new fleet.",
-    "details": "Bootstrap, jQuery, JavaScript, HTML, CSS, SVG, Illustrator, Fireworks, Visual Studio",
+    "text": "I was asked to produce a new responsive design and templates for the website. A major part of the work was the design and development of a complex multi-step javascript booking form. I created a series of form templates, using jQuery and incorporating clickable SVG elements to gather information about damaged auto glass. I also textured and rendered a 3D model of a van from their new fleet.",
+    "details": "Bootstrap, jQuery, JavaScript, HTML, CSS, SVG, Illustrator, Fireworks, Visual Studio, Blender",
     "link": "https://www.autowindscreens.co.uk"
   },
   {
@@ -45,7 +45,7 @@
     "rgb": "136,14,79",
     "url": "zenithaviation",
     "title": "Zenith Aviation",
-    "text": "Website for private charter jet company, developed a flight booking form in javascript, incorporating Bootstrap's Typeahead and Date/Time Picker.",
+    "text": "Website for the private jet charter company, developed a flight booking form in JavaScript, incorporating Bootstrap's Typeahead and Date/Time Picker.",
     "details": "Bootstrap, jQuery, JavaScript, HTML, LESS CSS, Fireworks, Visual Studio",
     "link": "https://www.zenithaviation.co.uk"
   },
