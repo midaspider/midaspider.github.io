@@ -1,6 +1,16 @@
 [
   {
     "category": "Website",
+    "date": "2017-09-01",
+    "rgb": "247,167,30",
+    "url": "selfserviceportal",
+    "title": "Self Service Portal",
+    "text": "This customer facing self service portal was developed to allow users to report motor vehicle accidents. Images were created in SVG format to enable colour customisation of the same template used accross several of the insurance group's websites.",
+    "details": "Bootstrap, jQuery, JavaScript, HTML, SVG, LESS, CSS, Visual Studio, Illustrator",
+    "link": "https://selfservice.zenithinsurancemanagement.com"
+  },
+  {
+    "category": "Website",
     "date": "2016-09-01",
     "rgb": "212,172,13",
     "url": "criim",
