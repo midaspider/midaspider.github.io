@@ -24,7 +24,7 @@ var app = angular.module('app', [
 /* CONSTANTS */
 app.constant('settings', {
    site_title: 'Midaspider',
-   tracking_id: 'UA-82221819-1',
+   tracking_id: 'UA-100503519-3',
    items_json: 'data/items.json'
 });
 
